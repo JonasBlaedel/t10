@@ -1,0 +1,68 @@
+/*FONTE*/
+
+@font-face {
+  font-family: larken;
+  src: url(../public/fonts/larken-regular.woff2);
+}
+
+@font-face {
+  font-family: franklin;
+  src: url(../public/fonts/franklin-gothic-regular.woff2);
+}
+
+@font-face {
+  font-family: helveticaH1;
+  src: url(../public/fonts/helvetica-heavy-italic.woff2);
+}
+
+/* ROOT */
+
+:root {
+  --blue: #0000ff;
+  --white: #fff;
+  --black: #141414;
+  --grey: #838383;
+
+  --xs-spacing: 8px;
+  --s--spacing: 16px;
+  --m-spacing: 24px;
+  --l-spacing: 32px;
+  --xl-spacing: 60px;
+}
+
+/*TYPOGRAPHY*/
+
+h1 {
+  font-family: helveticaH1;
+  font-size: clamp(2rem, 1.6364rem + 1.4545vw, 3rem);
+}
+
+h2 {
+  font-family: larken;
+  font-size: clamp(1.5rem, 1.3182rem + 0.7273vw, 2rem);
+}
+
+h3 {
+  font-family: larken;
+  font-size: clamp(1.25rem, 1.0682rem + 0.7273vw, 1.75rem);
+}
+
+h4 {
+  font-family: larken;
+  font-size: clamp(1rem, 0.8182rem + 0.7273vw, 1.5rem);
+}
+
+p {
+  font-family: franklin;
+  font-size: clamp(1rem, 0.9091rem + 0.3636vw, 1.25rem);
+  line-height: 1.6;
+  max-width: 65ch;
+}
+
+a {
+  font-family: franklin;
+  font-size: clamp(1rem, 0.9091rem + 0.3636vw, 1.25rem);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--blue);
+}
