@@ -1,152 +1,45 @@
 ---
 import MainLayout from "../components/MainLayout.astro";
+---
 
-const fetchData = async () => {
+<MainLayout>
+  <h1 class="header">PRESS</h1>
+</MainLayout>
+
+<style></style>
+
+<script>
   const url = "https://klsobzjqbscpapozhswb.supabase.co";
+
   const options = {
     headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
     },
   };
 
   const response = await fetch(url, options);
   const data = await response.json();
-
   const y2023 = [];
   const y2022 = [];
   const y2021 = [];
   const y2020 = [];
   const y2019 = [];
   const y2018 = [];
-
   data
     .sort((a, b) => parseInt(a.time) - parseInt(b.time))
     .forEach((element) => {
-      if (element.press_year === "2023") {
+      if (element.location === "2023") {
         y2023.push(element);
-      } else if (element.press_year === "2022") {
+      } else if (element.location === "2022") {
         y2022.push(element);
-      } else if (element.press_year === "2021") {
+      } else if (element.location === "2021") {
         y2021.push(element);
-      } else if (element.press_year === "2020") {
+      } else if (element.location === "2020") {
         y2020.push(element);
-      } else if (element.press_year === "2019") {
+      } else if (element.location === "2019") {
         y2019.push(element);
       } else {
         y2018.push(element);
       }
     });
-
----
-
-<MainLayout>
-    <h1 class="header">PRESS</h1>
-    <section id="press-content">
-        <article class="press-group">
-        <h2 class="h2-press">2023</h2>
-            {
-                y2023.map((year) => {
-                return (
-                  <div class="event_info">
-                    <h4>{year.press_name}</h4>
-                    <div class="event-info-flex">
-                      <p>{year.press_month}</p>
-                    </div>
-                  </div>
-              );
-            })
-          }
-        </article>
-
-        <article class="press-group">
-            <h2 class="h2-press">2022</h2>
-                {
-                    y2022.map((year) => {
-                    return (
-                      <div class="event_info">
-                        <h4>{year.press_name}</h4>
-                        <div class="event-info-flex">
-                          <p>{year.press_month}</p>
-                        </div>
-                      </div>
-                  );
-                })
-              }
-        </article>
-
-        <article class="press-group">
-            <h2 class="h2-press">2021</h2>
-                {
-                    y2021.map((year) => {
-                    return (
-                      <div class="event_info">
-                        <h4>{year.press_name}</h4>
-                        <div class="event-info-flex">
-                          <p>{year.press_month}</p>
-                        </div>
-                      </div>
-                  );
-                })
-              }
-        </article>
-
-        <article class="press-group">
-            <h2 class="h2-press">2020</h2>
-                {
-                    y2020.map((year) => {
-                    return (
-                      <div class="event_info">
-                        <h4>{year.press_name}</h4>
-                        <div class="event-info-flex">
-                          <p>{year.press_month}</p>
-                        </div>
-                      </div>
-                  );
-                })
-              }
-        </article>
-
-        <article class="press-group">
-            <h2 class="h2-press">2019</h2>
-                {
-                    y2019.map((year) => {
-                    return (
-                      <div class="event_info">
-                        <h4>{year.press_name}</h4>
-                        <div class="event-info-flex">
-                          <p>{year.press_month}</p>
-                        </div>
-                      </div>
-                  );
-                })
-              }
-        </article>
-
-        <article class="press-group">
-            <h2 class="h2-press">2018</h2>
-                {
-                    y2018.map((year) => {
-                    return (
-                      <div class="event_info">
-                        <h4>{year.press_name}</h4>
-                        <div class="event-info-flex">
-                          <p>{year.press_month}</p>
-                        </div>
-                      </div>
-                  );
-                })
-              }
-        </article>
-
-    </section>
-  
-
-
-</MainLayout>
-
-<style>
-
-</style>
-
-<script></script>
+</script>
