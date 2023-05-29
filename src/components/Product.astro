@@ -13,12 +13,14 @@ const data = await response.json();
 const { artist, product, price, img } = Astro.props;
 ---
 
-<a class="product-card" href="#">
-  <img src={`./img/${img}`} alt="" />
-  <h4>{artist}</h4>
-  <p>{product}</p>
-  <p>{price} DKK</p>
-</a>
+<li>
+  <a class="product-card" href="#">
+    <img src={`./img/${img}`} alt="" />
+    <h4>{artist}</h4>
+    <p>{product}</p>
+    <p>{price} DKK</p>
+  </a>
+</li>
 
 <style>
   .product-card > * {
@@ -28,5 +30,8 @@ const { artist, product, price, img } = Astro.props;
   .product-card img {
     min-height: 350px;
     object-fit: cover;
+  }
+  li {
+    list-style-type: none;
   }
 </style>
