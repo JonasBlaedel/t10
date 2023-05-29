@@ -1,8 +1,23 @@
+---
+const url = "https://klsobzjqbscpapozhswb.supabase.co/rest/v1/Product";
+
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
+  },
+};
+
+const response = await fetch(url, options);
+const data = await response.json();
+
+const { artist, product, price, img } = Astro.props;
+---
+
 <a class="product-card" href="#">
-  <img src="img/lighting1_1.webp" alt="" />
-  <h4>Product Artist</h4>
-  <p>Product Name</p>
-  <p>Product Price</p>
+  <img src={`./img/${img}`} alt="" />
+  <h4>{artist}</h4>
+  <p>{product}</p>
+  <p>{price} DKK</p>
 </a>
 
 <style>
