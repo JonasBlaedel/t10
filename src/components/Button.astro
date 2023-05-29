@@ -8,7 +8,16 @@ const { color, size } = Astro.props;
   .blue {
     background-color: var(--blue);
     color: var(--white);
+    border: 1px solid var(--blue);
+    cursor: pointer;
   }
+
+  .blue:hover {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+  }
+
   .white {
     background-color: var(--white);
     color: var(--blue);
