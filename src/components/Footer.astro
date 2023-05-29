@@ -25,21 +25,24 @@ import "../style.css";
   <div class="contact-footer">
     <a href="mailto:info@tableau-cph.com">info@tableau-cph.com</a>
     <a href="tel:+45 31 45 31 30">+45 31 45 31 30</a>
-    <a href="#">TERMS & CONDITIONS</a>
+    <a href="#">Terms & conditions</a>
   </div>
 </section>
-<section>
+<section class="icons-footer">
   <div class="some-icons">
-    <img src="../../public/icons/facebook.svg" alt="facebook logo" />
-    <img src="../../public/icons/insta.svg" alt="instagram logo" />
+    <div>
+      <img src="/icons/facebook.svg" alt="facebook logo" />
+      <img src="/icons/insta.svg" alt="instagram logo" />
+    </div>
+    <p>&copy; Tableau 2023</p>
   </div>
   <div class="payment-icons">
-    <img src="../../public/icons/mastercard-logo.png" alt="mastercard logo" />
-    <img src="../../public/icons/MP-logo.png" alt="Mobile pay logo" />
-    <img src="../../public/icons/securecode-logo.png" alt="Mastercard secure code logo" />
-    <img src="../../public/icons/verified-by-visa-logo.png" alt="Verified by visa logo" />
-    <img src="../../public/icons/visa-card-electron.png" alt="Visa electron logo" />
-    <img src="../../public/icons/visa-logo.png" alt="visa logo" />
+    <img src="/icons/mastercard-logo.png" alt="mastercard logo" />
+    <img src="/icons/MP-logo.png" alt="Mobile pay logo" />
+    <img src="/icons/securecode-logo.png" alt="Mastercard secure code logo" />
+    <img src="/icons/verified-by-visa-logo.png" alt="Verified by visa logo" />
+    <img src="/icons/visa-card-electron.png" alt="Visa electron logo" />
+    <img src="/icons/visa-logo.png" alt="visa logo" />
   </div>
 </section>
 
@@ -47,34 +50,56 @@ import "../style.css";
   .wave-footer {
     display: none;
   }
+  .store-footer {
+    padding: 1rem 0;
+  }
   .store-footer p {
     text-transform: uppercase;
   }
 
+  .icons-footer p {
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .some-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .some-icons div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
   div.opening_hours {
     display: flex;
     max-width: 65%;
     justify-content: space-between;
   }
 
-  .info-footer {
-    width: 100vw;
-  }
-
   .store-footer img {
     max-width: 10rem;
+    padding: 1rem 0;
   }
 
   .contact-footer {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-
+    gap: 1rem;
+    padding: 1rem 0;
     align-items: flex-end;
+    text-transform: uppercase;
   }
 
-  contact-footer p {
-    width: fit-content;
+  .payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+  }
+  .payment-icons img {
+    width: 50px;
   }
   @media (min-width: 690px) {
     .wave-footer {
