@@ -154,6 +154,7 @@ a {
 .main-container {
   padding-inline: var(--s-spacing);
   max-width: 1200px;
+  margin-inline: auto;
 }
 
 .header_footer {
