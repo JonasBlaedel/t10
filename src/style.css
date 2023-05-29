@@ -170,7 +170,6 @@ a:hover {
   .main-container {
     padding-inline: var(--s-spacing);
     max-width: 1250px;
-    margin-inline: auto;
     margin-top: var(--l-spacing);
   }
 

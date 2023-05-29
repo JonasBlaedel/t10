@@ -1,45 +1,85 @@
 ---
 import MainLayout from "../components/MainLayout.astro";
+
+const url = "https://klsobzjqbscpapozhswb.supabase.co";
+
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
+  },
+};
+
+const response = await fetch(url, options);
+const data = await response.json();
+const y2023 = [];
+const y2022 = [];
+const y2021 = [];
+const y2020 = [];
+const y2019 = [];
+const y2018 = [];
+data
+  .sort((a, b) => parseInt(a.time) - parseInt(b.time))
+  .forEach((element) => {
+    if (element.location === "2023") {
+      y2023.push(element);
+    } else if (element.location === "2022") {
+      y2022.push(element);
+    } else if (element.location === "2021") {
+      y2021.push(element);
+    } else if (element.location === "2020") {
+      y2020.push(element);
+    } else if (element.location === "2019") {
+      y2019.push(element);
+    } else {
+      y2018.push(element);
+    }
+  });
 ---
 
 <MainLayout>
-  <h1 class="header">PRESS</h1>
+  <div class="press-container">
+    <h1>PRESS</h1>
+    <h3>PRESS@TABLEAU-CPH.COM</h3>
+    <div class="press-year">
+      <div class="press-year-flex">
+        <h4 class="magazine">INSERT</h4>
+        <h4 class="month">INSERT</h4>
+      </div>
+    </div>
+  </div>
 </MainLayout>
 
-<style></style>
+<style>
+  .press-container {
+  padding-inline: var(--xs-spacing);
+  margin-inline: auto;
+  margin-top: var(--m-spacing);
+}
 
-<script>
-  const url = "https://klsobzjqbscpapozhswb.supabase.co";
+.press-year-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+@media (min-width: 690px) {
+  .press-container {
+    padding-inline: var(--s-spacing);
+    max-width: 900px;
+    margin-top: var(--l-spacing);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: var(--s-spacing);
+  }
 
-  const options = {
-    headers: {
-      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
-    },
-  };
+  h3 {
+    margin-block: var(--m-spacing);
+  }
+}
 
-  const response = await fetch(url, options);
-  const data = await response.json();
-  const y2023 = [];
-  const y2022 = [];
-  const y2021 = [];
-  const y2020 = [];
-  const y2019 = [];
-  const y2018 = [];
-  data
-    .sort((a, b) => parseInt(a.time) - parseInt(b.time))
-    .forEach((element) => {
-      if (element.location === "2023") {
-        y2023.push(element);
-      } else if (element.location === "2022") {
-        y2022.push(element);
-      } else if (element.location === "2021") {
-        y2021.push(element);
-      } else if (element.location === "2020") {
-        y2020.push(element);
-      } else if (element.location === "2019") {
-        y2019.push(element);
-      } else {
-        y2018.push(element);
-      }
-    });
-</script>
+  .press-year-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+
+<script></script>

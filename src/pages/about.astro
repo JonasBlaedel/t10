@@ -3,6 +3,7 @@ import MainLayout from "../components/MainLayout.astro";
 ---
 
 <MainLayout>
+    <div class="main-container">
         <h1>ABOUT</h1>
         <p id="about-text">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat in minima voluptatibus laboriosam architecto optio, vero doloremque aliquam voluptas. Temporibus alias facilis quae pariatur iure, deleniti quam ducimus totam quasi dignissimos accusantium, nobis blanditiis ad, obcaecati non suscipit et amet? Pariatur iure corporis facilis iste tenetur exercitationem voluptatum dolore numquam doloribus ipsa architecto labore eveniet blanditiis dolorem soluta nobis aspernatur error amet consequatur qui odit, minima, illum quis atque! Aperiam temporibus porro nobis optio odit distinctio, suscipit perferendis. <br> <br>
@@ -57,7 +58,7 @@ import MainLayout from "../components/MainLayout.astro";
                     </div>
                 </article>
             </section>
-
+    </div>
 </MainLayout>
 
 <style>
@@ -82,6 +83,7 @@ h2 {
 
 #about-grafik {
     margin-top: var(--m-spacing);
+    margin-inline: auto;
 }
 @media (min-width: 690px){
 .contact {
