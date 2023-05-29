@@ -1,0 +1,53 @@
+---
+import MainLayout from "../../components/MainLayout.astro";
+import "../../style.css";
+
+export async function getStaticPaths() {
+  const url =
+    "https://klsobzjqbscpapozhswb.supabase.co/rest/v1/Product?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0";
+
+  const options = {
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
+    },
+  };
+
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  return data.map((product) => ({
+    params: { slug: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+---
+
+<MainLayout>
+  <div class="wrapper">
+    <div class="carousel">
+      <img class="event-img" src={`/img/${product.product_img_1}`} alt="" />
+      <img class="event-img" src={`/img/${product.product_img_2}`} alt="" />
+      <img class="event-img" src={`/img/${product.product_img_3}`} alt="" />
+    </div>
+  </div>
+  <h1>{product.product_artist}</h1>
+  <p>{product.product_name}</p>
+  <p>{product.product_description}</p>
+  <p>{product.product_dimensions}</p>
+  <p>{product.product_materials}</p>
+  <p>{product.product_weight}</p>
+  <p>{product.product_price}</p>
+  <p>{product.product_category}</p>
+</MainLayout>
+
+<style>
+  .wrapper .carousel {
+    white-space: nowrap;
+  }
+
+  .wrapper {
+    max-width: 1200px;
+  }
+</style>
