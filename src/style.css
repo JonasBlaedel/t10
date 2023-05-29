@@ -101,14 +101,12 @@ body {
   --black: #141414;
   --grey: #838383;
 
-<<<<<<< HEAD
   --xxs-spacing: 0.5rem;
   --xs-spacing: 1rem;
   --s-spacing: 1.5rem;
   --m-spacing: 2rem;
   --l-spacing: 3rem;
   --xl-spacing: 5rem;
-=======
   --xs-spacing: 8px;
   --s--spacing: 16px;
   --m-spacing: 24px;
@@ -120,7 +118,6 @@ body {
   --h3-font-size: clamp(1.25rem, 1.0682rem + 0.7273vw, 1.75rem);
   --h4-font-size: clamp(1rem, 0.8182rem + 0.7273vw, 1.5rem);
   --p-font-size: clamp(1rem, 0.9091rem + 0.3636vw, 1.25rem);
->>>>>>> afc778b (Header component)
 }
 
 /*TYPOGRAPHY*/
