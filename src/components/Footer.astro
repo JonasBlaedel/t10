@@ -5,7 +5,7 @@ import "../style.css";
 <section class="info-footer">
   <div class="store-footer">
     <img src="/logo/logo-blue.svg" alt="Tableau Logo" />
-    <p>Store Kongensgade 50 <br /> 1624 København K</p>
+    <p id="store">Store Kongensgade 50 <br /> 1624 København K</p>
     <div class="opening_hours">
       <p>Monday - friday</p>
       <p>10-18</p>
@@ -20,7 +20,7 @@ import "../style.css";
     </div>
   </div>
   <div class="wave-footer">
-    <img src="" alt="Tableau wave" />
+    <img src="/icons/wave.svg" alt="Tableau wave" />
   </div>
   <div class="contact-footer">
     <a href="mailto:info@tableau-cph.com">info@tableau-cph.com</a>
@@ -104,6 +104,24 @@ import "../style.css";
   @media (min-width: 690px) {
     .wave-footer {
       display: block;
+    }
+    .info-footer {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      gap: 1rem;
+    }
+    #store {
+      padding: 1rem 0;
+    }
+    .store-footer p {
+      margin-bottom: 0.5rem;
+    }
+    .contact-footer {
+      gap: 2rem;
+    }
+    div.opening_hours {
+      max-width: 250px;
     }
   }
 </style>
