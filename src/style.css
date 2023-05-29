@@ -141,7 +141,7 @@ p {
   font-family: franklin;
   font-size: clamp(1rem, 0.9091rem + 0.3636vw, 1.25rem);
   line-height: 1.6;
-  max-width: 65ch;
+  max-width: 70ch;
 }
 
 a {
@@ -154,7 +154,6 @@ a {
 .main-container {
   padding-inline: var(--s-spacing);
   max-width: 1200px;
-  margin-inline: auto;
 }
 
 .header_footer {
