@@ -1,0 +1,275 @@
+---
+import "../style.css";
+---
+
+<div class="topnav">
+  <img id="menu-logo" class="hidden" src="/logo/logo-blue.svg" alt="Tableau Logo" />
+  <ul id="myLinks">
+    <a href="/shop">
+      <li>Shop</li>
+    </a>
+    <a href="/work">
+      <li>Work</li>
+    </a>
+    <a href="/about">
+      <li>About</li>
+    </a>
+    <a href="/press">
+      <li>Press</li>
+    </a>
+  </ul>
+  <button id="burger" aria-controls="primary-navigation" aria-label="Menu" aria-expanded="false">
+    <span class="hamburger" aria-hidden="true"></span>
+  </button>
+  <div class="logo">
+    <a href="/" aria-label="Hjem"><img class="logo" src="/logo/logo-blue.svg" alt="logo" /></a>
+  </div>
+  <div class="header-icons">
+    <img src="/icons/search.svg" alt="search-icon" />
+    <a href=""><img src="/icons/cart.svg" alt="cart-icon" /></a>
+  </div>
+</div>
+
+<style>
+  .topnav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+
+  .header-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  .header-icons img {
+    max-width: 25px;
+  }
+  .header-icons a {
+    border-bottom: none;
+    padding-bottom: none;
+  }
+
+  .banner-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+    margin: auto;
+    background-color: var(--blue);
+    padding-block: 0.3rem;
+    color: white;
+  }
+
+  .banner-content {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: banner-animation 100s linear infinite;
+  }
+
+  .banner-content p {
+    display: inline-block;
+  }
+
+  #myLinks {
+    position: fixed;
+    top: clamp(2.8125rem, 2.767rem + 0.1942vw, 3rem);
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translateX(-110%);
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white);
+    z-index: 10;
+    transition: transform 0.3s ease-out;
+    gap: 2rem;
+  }
+  #myLinks a {
+    text-transform: uppercase;
+    font-size: var(--h1-font-size);
+    font-family: helveticah1;
+  }
+
+  #myLinks.shown {
+    transition: transform 0.3s ease-in;
+    transform: translateX(0%);
+  }
+
+  #burger {
+    background: transparent;
+    border: none;
+    min-width: 44px;
+    min-height: 44px;
+    cursor: pointer;
+    z-index: 1000;
+    position: relative;
+  }
+
+  .hamburger {
+    display: block;
+    position: relative;
+  }
+
+  .hamburger::before {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    width: 1.8em;
+    height: 3px;
+    background: var(--blue);
+    margin-top: 8px;
+
+    transition: transform 0.3s cubic-bezier(0, 0.01, 0.24, 1);
+  }
+
+  .hamburger::before {
+    bottom: 8px;
+  }
+
+  .pressed .hamburger {
+    transform: rotate(-45deg);
+  }
+
+  .pressed .hamburger::before {
+    transform: rotate(90deg) translate(8px);
+  }
+
+  div.topnav.astro-5NRTTP2S {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--small) var(--medium);
+    position: relative;
+  }
+
+  img.logo.astro-5NRTTP2S {
+    width: clamp(3.25rem, 2.6432rem + 2.589vw, 5.75rem);
+    z-index: 999;
+    position: relative;
+  }
+
+  #myLinks.shown {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 4rem 2rem;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: var(--white);
+  }
+
+  #menu-logo {
+    position: absolute;
+    width: 80%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+
+  span.hamburger.astro-5NRTTP2S {
+    z-index: 1000;
+  }
+
+  li.astro-5NRTTP2S {
+    font-size: var(--menu-links-font-size);
+    font-family: heading-font;
+    text-transform: uppercase;
+    color: var(--black);
+    cursor: pointer;
+    transition: 150ms ease-in-out;
+  }
+
+  .shown {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  @media (min-width: 690px) {
+    #myLinks {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      transform: translateX(0%);
+      width: fit-content;
+      height: auto;
+      background-color: transparent;
+      gap: 2rem;
+    }
+
+    #burger {
+      display: none;
+    }
+
+    #myLinks a {
+      text-transform: uppercase;
+      font-size: var(--h4-font-size);
+      font-family: helveticah1;
+      border-bottom: none;
+    }
+
+    .topnav {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      align-items: center;
+    }
+
+    .logo {
+      grid-column: 1/3;
+      grid-row: 1/2;
+    }
+
+    .header-icons {
+      grid-column: 10/11;
+    }
+
+    #myLinks {
+      grid-column: 3/10;
+      margin-left: auto;
+    }
+  }
+</style>
+
+<script>
+  // Lav variablen "btn", der henviser til ".toggle-btn"
+  const btn = document.querySelector("#burger");
+  // Lav variablen "menu", der henviser til ".nav-links"
+  const menu = document.querySelector("#myLinks");
+
+  function toggleMenu() {
+    menu.classList.toggle("shown");
+    btn.classList.toggle("pressed");
+
+    const menuShown = menu.classList.contains("shown");
+    if (menuShown) {
+      document.body.style.overflowY = "hidden";
+      console.log(menuShown);
+      document.querySelector("#menu-logo").classList.remove("hidden");
+      document.querySelector("#menu-logo").classList.add("shown");
+    } else {
+      document.body.style.overflowY = "auto";
+      document.querySelector("#menu-logo").classList.remove("shown");
+      document.querySelector("#menu-logo").classList.add("hidden");
+      console.log(menuShown);
+    }
+  }
+
+  // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
+  btn.addEventListener("click", toggleMenu);
+</script>
