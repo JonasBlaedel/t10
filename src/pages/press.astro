@@ -1,39 +1,46 @@
 ---
 import MainLayout from "../components/MainLayout.astro";
 
-const url = "https://klsobzjqbscpapozhswb.supabase.co";
+const fetchData = async () => {
+  const url = "https://klsobzjqbscpapozhswb.supabase.co";
 
-const options = {
-  headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
-  },
+  const options = {
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
+    },
+  };
+
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  const y2023 = [];
+  const y2022 = [];
+  const y2021 = [];
+  const y2020 = [];
+  const y2019 = [];
+  const y2018 = [];
+
+  data
+    .sort((a, b) => parseInt(a.time) - parseInt(b.time))
+    .forEach((element) => {
+      if (element.location === "2023") {
+        y2023.push(element);
+      } else if (element.location === "2022") {
+        y2022.push(element);
+      } else if (element.location === "2021") {
+        y2021.push(element);
+      } else if (element.location === "2020") {
+        y2020.push(element);
+      } else if (element.location === "2019") {
+        y2019.push(element);
+      } else {
+        y2018.push(element);
+      }
+    });
 };
 
-const response = await fetch(url, options);
-const data = await response.json();
-const y2023 = [];
-const y2022 = [];
-const y2021 = [];
-const y2020 = [];
-const y2019 = [];
-const y2018 = [];
-data
-  .sort((a, b) => parseInt(a.time) - parseInt(b.time))
-  .forEach((element) => {
-    if (element.location === "2023") {
-      y2023.push(element);
-    } else if (element.location === "2022") {
-      y2022.push(element);
-    } else if (element.location === "2021") {
-      y2021.push(element);
-    } else if (element.location === "2020") {
-      y2020.push(element);
-    } else if (element.location === "2019") {
-      y2019.push(element);
-    } else {
-      y2018.push(element);
-    }
-  });
+fetchData();
 ---
 
 <MainLayout>
