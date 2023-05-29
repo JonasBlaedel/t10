@@ -3,11 +3,12 @@ import MainLayout from "../components/MainLayout.astro";
 ---
 
 <MainLayout>
-    <div class="about-wrapper">
-        <h1 class="about-h1">ABOUT</h1>
-        <p class="about-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat in minima voluptatibus laboriosam architecto optio, vero doloremque aliquam voluptas. Temporibus alias facilis quae pariatur iure, deleniti quam ducimus totam quasi dignissimos accusantium, nobis blanditiis ad, obcaecati non suscipit et amet? Pariatur iure corporis facilis iste tenetur exercitationem voluptatum dolore numquam doloribus ipsa architecto labore eveniet blanditiis dolorem soluta nobis aspernatur error amet consequatur qui odit, minima, illum quis atque! Aperiam temporibus porro nobis optio odit distinctio, suscipit perferendis. Et corporis eaque praesentium atque dicta! Quasi ullam quisquam in ab neque numquam at nihil quod tempore soluta ipsum, maxime nemo itaque voluptas inventore! Dolorem voluptatum amet quos odio, maiores fugit corrupti in alias ut illum cum maxime sunt necessitatibus quam possimus est iusto enim adipisci repudiandae aperiam quasi. Recusandae nulla ipsum, a, tempore officiis voluptatibus reprehenderit dolore, facere eaque provident harum dolor saepe. Minima est quasi laudantium ex esse exercitationem impedit sit similique deserunt sint quis repudiandae expedita eaque nulla fuga ut perferendis vel, accusantium voluptate dolorum sed sapiente! Veritatis rerum ab doloremque? Ratione debitis deserunt quibusdam quis voluptates, distinctio odio excepturi tenetur quaerat repellat voluptate minima totam facilis unde non rem animi iste itaque. Eum nostrum quos voluptates architecto accusantium hic? In animi error quibusdam sint, mollitia perferendis quas harum ratione ipsum repellat beatae minima neque saepe voluptas magnam iusto id autem natus nesciunt at. Velit in harum incidunt alias soluta hic repellat iste mollitia error accusantium earum quaerat iusto quia iure dolor labore nisi tempore dolorum sed consectetur, vero praesentium sequi! Voluptatem incidunt nemo harum tempore. Maxime consectetur, exercitationem et magnam iure reprehenderit veritatis tempore assumenda magni enim, rerum mollitia officiis qui voluptate quod expedita non culpa eos accusamus cumque explicabo voluptatum autem? Nemo fugiat, dolore, unde quos recusandae perspiciatis totam ducimus ullam deserunt veniam consequuntur repellat vitae tempora vero iusto autem rerum iste modi est asperiores quam eaque deleniti eum. Quidem voluptate voluptas reprehenderit, dolor commodi minima nesciunt sunt deleniti sed nulla aliquam doloremque blanditiis mollitia possimus quae. Quae beatae vero quisquam ipsa architecto dignissimos autem doloremque ratione ex eius quos esse velit, earum dolores, asperiores animi repudiandae totam labore maiores ducimus facilis vitae eum! Iusto id recusandae quaerat non aut quas numquam quibusdam beatae natus neque reiciendis placeat unde dolorem aspernatur accusantium officiis quasi culpa, nisi tempora doloribus vel ipsam nobis. Quis nam esse, quo doloremque deserunt quibusdam alias iure quos veniam itaque necessitatibus ipsum! Consequatur, reiciendis?
+        <h1>ABOUT</h1>
+        <p id="about-text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat in minima voluptatibus laboriosam architecto optio, vero doloremque aliquam voluptas. Temporibus alias facilis quae pariatur iure, deleniti quam ducimus totam quasi dignissimos accusantium, nobis blanditiis ad, obcaecati non suscipit et amet? Pariatur iure corporis facilis iste tenetur exercitationem voluptatum dolore numquam doloribus ipsa architecto labore eveniet blanditiis dolorem soluta nobis aspernatur error amet consequatur qui odit, minima, illum quis atque! Aperiam temporibus porro nobis optio odit distinctio, suscipit perferendis. <br> <br>
+            Et corporis eaque praesentium atque dicta! Quasi ullam quisquam in ab neque numquam at nihil quod tempore soluta ipsum, maxime nemo itaque voluptas inventore! Dolorem voluptatum amet quos odio, maiores fugit corrupti in alias ut illum cum maxime sunt necessitatibus quam possimus est iusto enim adipisci repudiandae aperiam quasi. Recusandae nulla ipsum, a, tempore officiis voluptatibus reprehenderit dolore, facere eaque provident harum dolor saepe. Minima est quasi laudantium ex esse exercitationem impedit sit similique deserunt sint quis repudiandae expedita eaque nulla fuga ut perferendis vel, accusantium voluptate dolorum sed sapiente! Veritatis rerum ab doloremque? Ratione debitis deserunt quibusdam quis voluptates, distinctio odio excepturi tenetur quaerat repellat voluptate minima totam facilis unde non rem animi iste itaque.
         </p>
+        <img id="about-grafik" src="../icons/wave.svg" alt="bolgegrafik">
         <h2>CONTACT</h2>
             <section class="contact">
                 <article class="contact-left">
@@ -56,12 +57,47 @@ import MainLayout from "../components/MainLayout.astro";
                     </div>
                 </article>
             </section>
-    </div>
 
 </MainLayout>
 
 <style>
-    .about-wrapper {
-        margin-inline: au
-    }
+h1 {
+    text-align: center;
+    margin-bottom: var(--m-spacing);
+}
+
+h2 {
+    color: var(--blue);
+    margin-block: var(--m-spacing);
+    text-align: center;
+}
+
+.contact-right {
+    text-align: right;
+}
+
+.personal-contact,
+.contact-right-item {
+    margin-bottom: var(--xs-spacing);
+}
+
+#about-grafik {
+    margin-top: var(--m-spacing);
+}
+@media (min-width: 690px){
+.contact {
+    display: flex;
+    justify-content: space-between;
+}
+
+.personal-contact,
+.contact-right-item {
+    margin-bottom: var(--s-spacing);
+}
+
+#about-text {
+    text-align: center;
+    margin-inline: auto;
+}
+}
 </style>
