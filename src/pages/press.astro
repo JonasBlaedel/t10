@@ -1,92 +1,540 @@
 ---
 import MainLayout from "../components/MainLayout.astro";
-
-const fetchData = async () => {
-  const url = "https://klsobzjqbscpapozhswb.supabase.co";
-
-  const options = {
-    headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
-    },
-  };
-
-  const response = await fetch(url, options);
-  const data = await response.json();
-
-  const y2023 = [];
-  const y2022 = [];
-  const y2021 = [];
-  const y2020 = [];
-  const y2019 = [];
-  const y2018 = [];
-
-  data
-    .sort((a, b) => parseInt(a.time) - parseInt(b.time))
-    .forEach((element) => {
-      if (element.location === "2023") {
-        y2023.push(element);
-      } else if (element.location === "2022") {
-        y2022.push(element);
-      } else if (element.location === "2021") {
-        y2021.push(element);
-      } else if (element.location === "2020") {
-        y2020.push(element);
-      } else if (element.location === "2019") {
-        y2019.push(element);
-      } else {
-        y2018.push(element);
-      }
-    });
-};
-
-fetchData();
 ---
 
 <MainLayout>
   <div class="press-container">
     <h1>PRESS</h1>
-    <h3>PRESS@TABLEAU-CPH.COM</h3>
-    <div class="press-year">
+    <h4>PRESS@TABLEAU-CPH.COM</h4>
+    <div class="press_year">
+      <h3 class="year-nr">2023</h3>
       <div class="press-year-flex">
-        <h4 class="magazine">INSERT</h4>
-        <h4 class="month">INSERT</h4>
+        <h4>Scandinavianmind.com</h4>
+        <h4>May</h4>
       </div>
+      <div class="press-year-flex">
+        <h4>Hypebeast.com</h4>
+        <h4>April</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Stylepark.com</h4>
+        <h4>April</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Architecturaldigest.com</h4>
+        <h4>March</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Sightunseen.com</h4>
+        <h4>March</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Hypebeast.com</h4>
+        <h4>March</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Elle.com India</h4>
+        <h4>March</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Wallpaper.com</h4>
+        <h4>March</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Sightunseen.com</h4>
+        <h4>February</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Milk Magazine</h4>
+        <h4>February</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Dezeen.com</h4>
+        <h4>February</h4>
+      </div>
+      <div class="press-year-flex">
+        <h4>Elle Decor</h4>
+        <h4>January</h4>
+      </div>
+      <div class="press_year">
+        <h3 class="year-nr">2022</h3>
+        <div class="press-year-flex">
+          <h4>Stirpad.com</h4>
+          <h4>July</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Frameweb.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Dezeen.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Wallpaper.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Milkdecoration.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Voguescandinavia.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Mousart.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Voguescandinavia.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Pointofdesign.pl</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Stirworld.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Jnews.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Hypebeast.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Mixzhare.com</h4>
+          <h4>June</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Rum International</h4>
+          <h4>March</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Stirworld.com</h4>
+          <h4>February</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Design-Milk</h4>
+          <h4>February</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Metropolismag.com</h4>
+          <h4>February</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Dezeen.com</h4>
+          <h4>February</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Adily.net</h4>
+          <h4>February</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Elle Decor</h4>
+          <h4>January</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Frameweb.com</h4>
+          <h4>January</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Woodsupply.dk</h4>
+          <h4>January</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Estliving.com</h4>
+          <h4>January</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Sightunseen.com</h4>
+          <h4>January</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Bobedre.dk</h4>
+          <h4>January</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Euroman.dk</h4>
+          <h4>January</h4>
+        </div>
+        <div class="press-year-flex">
+          <h4>Wallpaper</h4>
+          <h4>January</h4>
+        </div>
+        <div class="press_year">
+          <h3 class="year-nr">2021</h3>
+          <div class="press-year-flex">
+            <h4>Interior+Design, Russia</h4>
+            <h4>November</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Vogue Scandinavia</h4>
+            <h4>October</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>LS:N Global.com</h4>
+            <h4>October</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Wallpaper.com</h4>
+            <h4>October</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Sightunseen</h4>
+            <h4>October</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Yellowtrace.com.au</h4>
+            <h4>September</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Elle Decor.com, Italy</h4>
+            <h4>September</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Elle Decor.com, China</h4>
+            <h4>September</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>IX Design</h4>
+            <h4>July</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Sightunseen.com</h4>
+            <h4>June</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Elle Decor.com, Denmark</h4>
+            <h4>June</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Rum International</h4>
+            <h4>May</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Wallpaper</h4>
+            <h4>May</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Rum International</h4>
+            <h4>May</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Costume</h4>
+            <h4>May</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Annabelle</h4>
+            <h4>May</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Rum International</h4>
+            <h4>May</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>ADMagazine.com</h4>
+            <h4>April</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Rum International</h4>
+            <h4>March</h4>
+          </div>
+          <div class="press-year-flex">
+            <h4>Dezeen.com</h4>
+            <h4>February</h4>
+          </div>
+          <div class="press_year">
+            <h3 class="year-nr">2020</h3>
+            <div class="press-year-flex">
+              <h4>Boomsaloon.com</h4>
+              <h4>November</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Sightunseen.com</h4>
+              <h4>November</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Kinfolk.com</h4>
+              <h4>October</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Visualpleasuremag.com</h4>
+              <h4>October</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Illum.dk</h4>
+              <h4>July</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Wallpaper.com</h4>
+              <h4>May</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Bobedredk</h4>
+              <h4>April</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Architectural Digest, Germany</h4>
+              <h4>April</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Wallpaper.com</h4>
+              <h4>April</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Architectural Digest, Italy</h4>
+              <h4>April</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>On Office</h4>
+              <h4>March</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Costume Living</h4>
+              <h4>March</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Milkdecoration.com</h4>
+              <h4>March</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Milk Decoration</h4>
+              <h4>March</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Themodernhouse.com</h4>
+              <h4>February</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Nordicstylemag.com</h4>
+              <h4>February</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Sightunseen.com</h4>
+              <h4>February</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Husk</h4>
+              <h4>February</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Material Source</h4>
+              <h4>February</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Bo bedre</h4>
+              <h4>February</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Wallpaper</h4>
+              <h4>February</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Sightunseen.com</h4>
+              <h4>January</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Kunsten.nu</h4>
+              <h4>January</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Idoart.dk</h4>
+              <h4>January</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Wallpaper.com</h4>
+              <h4>January</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>NEO2</h4>
+              <h4>January</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Blue Wings</h4>
+              <h4>January</h4>
+            </div>
+          </div>
+          <div class="press_year">
+            <h3 class="year-nr">2019</h3>
+            <div class="press-year-flex">
+              <h4>Material Source</h4>
+              <h4>December</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Oddform.eu</h4>
+              <h4>December</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Bo Bedre</h4>
+              <h4>November</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Ideat</h4>
+              <h4>November</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Wohn! Design</h4>
+              <h4>October</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Kunsten.nu</h4>
+              <h4>October</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Eclectic Trends</h4>
+              <h4>June</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Phaidon.com</h4>
+              <h4>April</h4>
+            </div>
+            <div class="press-year-flex">
+              <h4>Idoart.dk</h4>
+              <h4>January</h4>
+            </div>
+            <div class="press_year">
+              <h3 class="year-nr">2018</h3>
+              <div class="press-year-flex">
+                <h4>Kinfolk.com</h4>
+                <h4>November</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Wideonline.com</h4>
+                <h4>September</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Casavogue.com</h4>
+                <h4>September</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Designboom.com</h4>
+                <h4>September</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Dansk</h4>
+                <h4>September</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>August</h4>
+                <h4>Frameweb.com</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Frame</h4>
+                <h4>July</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Goooood.cn</h4>
+                <h4>July</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Rum International</h4>
+                <h4>June</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Stylepark.com</h4>
+                <h4>June</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Architectural Digest, Germany</h4>
+                <h4>June</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Trendland.com</h4>
+                <h4>May</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Journal-du-design.com</h4>
+                <h4>April</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Yellowtrace.com.au</h4>
+                <h4>April</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Curbed.com</h4>
+                <h4>April</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Heebunediaries.com</h4>
+                <h4>April</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Sightunseen.com</h4>
+                <h4>March</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Trendhunter.com</h4>
+                <h4>March</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Wallpaper.com</h4>
+                <h4>March</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Bobedre.dk</h4>
+                <h4>March</h4>
+              </div>
+              <div class="press-year-flex">
+                <h4>Architonic</h4>
+                <h4>March</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        h1 {
+          text-align: center;
+          margin-bottom: var(--xs-spacing);
+        }
+        h4 {
+          margin-top: var(--xxs-spacing);
+          font-weight: 200;
+        }
+        .year-nr {
+          font-family: helveticaH1;
+          color: var(--blue);
+          margin-top: var(--s-spacing);
+          font-size: var(--h1-font-size);
+        }
+
+        .press-container {
+          padding-inline: var(--xs-spacing);
+          margin-inline: auto;
+          margin-top: var(--m-spacing);
+          max-width: 900px;
+        }
+
+        .press_year {
+          margin-bottom: 50px;
+        }
+        .press-year-flex {
+          display: flex;
+          justify-content: space-between;
+          margin-inline: auto;
+          max-width: 900px;
+        }
+        @media (min-width: 690px) {
+          .press-container {
+            margin-top: var(--l-spacing);
+          }
+          h1 {
+            margin-bottom: var(--m-spacing);
+          }
+
+          h4 {
+            margin-top: var(--xs-spacing);
+          }
+        }
+      </style>
+
+      <script></script>
     </div>
   </div>
 </MainLayout>
-
-<style>
-  .press-container {
-  padding-inline: var(--xs-spacing);
-  margin-inline: auto;
-  margin-top: var(--m-spacing);
-}
-
-.press-year-flex {
-    display: flex;
-    justify-content: space-between;
-  }
-@media (min-width: 690px) {
-  .press-container {
-    padding-inline: var(--s-spacing);
-    max-width: 900px;
-    margin-top: var(--l-spacing);
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: var(--s-spacing);
-  }
-
-  h3 {
-    margin-block: var(--m-spacing);
-  }
-}
-
-  .press-year-flex {
-    display: flex;
-    justify-content: space-between;
-  }
-</style>
-
-<script></script>
