@@ -150,3 +150,14 @@ a {
   padding-bottom: 4px;
   border-bottom: 1px solid var(--blue);
 }
+
+.main-container {
+  padding-inline: var(--s-spacing);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.header_footer {
+  padding-block: var(--xs-spacing);
+  padding-inline: var(--s-spacing);
+}
