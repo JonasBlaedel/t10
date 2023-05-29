@@ -1,12 +1,28 @@
 ---
 import MainLayout from "../components/MainLayout.astro";
 import Product from "../components/Product.astro";
+const url = "https://klsobzjqbscpapozhswb.supabase.co/rest/v1/Product";
+
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
+  },
+};
+
+const response = await fetch(url, options);
+const data = await response.json();
 ---
 
-<MainLayout />
+<MainLayout>
+  {
+    data.map((product) => {
+      return <Product artist={product.product_artist} product={product.product_name} price={product.product_price} img={product.product_img_1} />;
+    })
+  }
+</MainLayout>
 
 <style>
-  .grids {
+  .grid {
     display: grid;
     gap: var(--xs-spacing);
     margin-top: var(--xs-spacing);
@@ -16,7 +32,6 @@ import Product from "../components/Product.astro";
 
 <script>
   const url = "https://klsobzjqbscpapozhswb.supabase.co/rest/v1/Product";
-
   const options = {
     headers: {
       apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
@@ -26,5 +41,17 @@ import Product from "../components/Product.astro";
   const response = await fetch(url, options);
   const data = await response.json();
 
-  console.log(data);
+  let productsToLog = [];
+  data.forEach((product, index) => {
+    if ((index + 1) % 2 === 0 || (index + 1) % 3 === 0) {
+      productsToLog.push(product.product_name);
+
+      const productElement = document.querySelector(`[data-product-id="${product.product_name}"]`);
+      if (productElement) {
+        productElement.classList.add(".grid");
+      }
+    }
+  });
+
+  console.log("Products:", productsToLog.join(", "));
 </script>
