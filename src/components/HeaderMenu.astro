@@ -36,6 +36,8 @@ import "../style.css";
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     position: fixed;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
   }
 
   .header-icons {
@@ -245,6 +247,10 @@ import "../style.css";
       margin-left: auto;
     }
   }
+
+  .scrolled-nav {
+    background-color: var(--white);
+  }
 </style>
 
 <script>
@@ -273,4 +279,15 @@ import "../style.css";
 
   // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
   btn.addEventListener("click", toggleMenu);
+
+  window.addEventListener("scroll", function () {
+    var topnav = document.querySelector(".topnav");
+    var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrolled > 0) {
+      topnav.classList.add("scrolled-nav");
+    } else {
+      topnav.classList.remove("scrolled-nav");
+    }
+  });
 </script>
