@@ -1,0 +1,30 @@
+---
+import MainLayout from "../components/MainLayout.astro";
+import Product from "../components/Product.astro";
+---
+
+<MainLayout />
+
+<style>
+  .grids {
+    display: grid;
+    gap: var(--xs-spacing);
+    margin-top: var(--xs-spacing);
+    grid-template-columns: 1fr 1fr;
+  }
+</style>
+
+<script>
+  const url = "https://klsobzjqbscpapozhswb.supabase.co/rest/v1/Product";
+
+  const options = {
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
+    },
+  };
+
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  console.log(data);
+</script>
