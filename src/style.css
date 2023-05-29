@@ -151,6 +151,10 @@ a {
   border-bottom: 1px solid var(--blue);
 }
 
+a:hover {
+  color: var(--blue);
+}
+
 .main-container {
   padding-inline: var(--s-spacing);
   max-width: 1200px;
