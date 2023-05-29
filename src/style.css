@@ -156,12 +156,26 @@ a:hover {
 }
 
 .main-container {
-  padding-inline: var(--s-spacing);
-  max-width: 1200px;
+  padding-inline: var(--xs-spacing);
   margin-inline: auto;
+  margin-top: var(--m-spacing);
 }
 
 .header_footer {
-  padding-block: var(--xs-spacing);
-  padding-inline: var(--s-spacing);
+  padding-top: var(--xxs-spacing);
+  padding-inline: var(--xs-spacing);
+}
+
+@media (min-width: 690px) {
+  .main-container {
+    padding-inline: var(--s-spacing);
+    max-width: 1250px;
+    margin-inline: auto;
+    margin-top: var(--l-spacing);
+  }
+
+  .header_footer {
+    padding-block: var(--xs-spacing);
+    padding-inline: var(--s-spacing);
+  }
 }
