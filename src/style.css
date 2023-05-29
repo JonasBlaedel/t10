@@ -101,13 +101,7 @@ body {
   --black: #141414;
   --grey: #838383;
 
-  /* --xs-spacing: 8px;
-  --s--spacing: 16px;
-  --m-spacing: 24px;
-  --l-spacing: 32px;
-  --xl-spacing: 60px; */
-
-  --xs-spacing: 0.5rem;
+  --xxs-spacing: 0.5rem;
   --xs-spacing: 1rem;
   --s-spacing: 1.5rem;
   --m-spacing: 2rem;
