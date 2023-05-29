@@ -10,17 +10,15 @@ const options = {
 const response = await fetch(url, options);
 const data = await response.json();
 
-const { artist, product, price, img } = Astro.props;
+const { artist, product, price, img, href } = Astro.props;
 ---
 
-<li>
-  <a class="product-card" href="#">
-    <img src={`./img/${img}`} alt="" />
-    <h4>{artist}</h4>
-    <p>{product}</p>
-    <p>{price} DKK</p>
-  </a>
-</li>
+<a class="product-card" href={"products/" + href}>
+  <img src={`./img/${img}`} alt="" />
+  <h4>{artist}</h4>
+  <p>{product}</p>
+  <p>{price} DKK</p>
+</a>
 
 <style>
   .product-card > * {
@@ -28,10 +26,22 @@ const { artist, product, price, img } = Astro.props;
   }
 
   .product-card img {
-    min-height: 350px;
+    min-height: 400px;
+    width: 100%;
     object-fit: cover;
+    object-position: center;
+  }
+
+  @media (min-width: 1000px) {
+    .product-card img {
+      min-height: 600px;
+    }
   }
   li {
     list-style-type: none;
+  }
+
+  a {
+    border-bottom: none;
   }
 </style>
