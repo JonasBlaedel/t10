@@ -161,7 +161,7 @@ a:hover {
 }
 
 .header_footer {
-  padding-top: var(--xxs-spacing);
+  padding-block: var(--xxs-spacing);
   padding-inline: var(--xs-spacing);
 }
 
