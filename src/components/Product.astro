@@ -23,6 +23,9 @@ const { artist, product, price, img, href } = Astro.props;
 </a>
 
 <style>
+  .product-card {
+    margin-top: var(--s-spacing);
+  }
   .flex {
     display: flex;
     justify-content: space-between;
@@ -33,7 +36,7 @@ const { artist, product, price, img, href } = Astro.props;
   }
 
   .product-card img {
-    min-height: 400px;
+    aspect-ratio: 4/5;
     width: 100%;
     object-fit: cover;
     object-position: center;
@@ -41,7 +44,8 @@ const { artist, product, price, img, href } = Astro.props;
 
   @media (min-width: 1000px) {
     .product-card img {
-      min-height: 600px;
+      /* min-height: 500px; */
+      aspect-ratio: 4/5;
     }
   }
   li {
