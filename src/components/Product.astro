@@ -14,14 +14,21 @@ const { artist, product, price, img, href } = Astro.props;
 ---
 
 <a class="product-card" href={"products/" + href}>
-  <img src={`./img/${img}`} alt="" />
+  <img src={`/img/${img}`} alt="" />
   <h4>{artist}</h4>
-  <p>{product}</p>
-  <p>{price} DKK</p>
+  <div class="flex">
+    <p>{product}</p>
+    <p>{price} DKK</p>
+  </div>
 </a>
 
 <style>
-  .product-card > * {
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h4 {
     margin-top: var(--xxs-spacing);
   }
 
