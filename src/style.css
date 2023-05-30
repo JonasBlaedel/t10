@@ -77,10 +77,13 @@ body {
 }
 
 /*FONTE*/
-@font-face {
+
+@import url("https://use.typekit.net/qzp4zad.css");
+
+/* @font-face {
   font-family: larken;
   src: url(../public/fonts/larken-regular.woff2);
-}
+} */
 
 @font-face {
   font-family: franklin;
@@ -122,17 +125,23 @@ h1 {
 }
 
 h2 {
-  font-family: larken;
+  font-family: "larken", sans-serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: clamp(1.5rem, 1.3182rem + 0.7273vw, 2rem);
 }
 
 h3 {
-  font-family: larken;
+  font-family: "larken", sans-serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: clamp(1.25rem, 1.0682rem + 0.7273vw, 1.75rem);
 }
 
 h4 {
-  font-family: larken;
+  font-family: "larken", sans-serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: clamp(1rem, 0.8182rem + 0.7273vw, 1.5rem);
 }
 
