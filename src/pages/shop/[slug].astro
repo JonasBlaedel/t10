@@ -29,7 +29,7 @@ const { product } = Astro.props;
   <section class="product-overview">
     <div class="wrapper">
       <div class="carousel images">
-        <img class="event-img" src={`/img/${product.product_img_1}`} alt="" draggable="false" />
+        <img class="event-img" id="sourceImage" src={`/img/${product.product_img_1}`} alt="" draggable="false" />
         <img class="event-img" src={`/img/${product.product_img_2}`} alt="" draggable="false" />
         <img class="event-img" src={`/img/${product.product_img_3}`} alt="" draggable="false" />
       </div>
@@ -37,7 +37,7 @@ const { product } = Astro.props;
 
     <div class="purchase main-container">
       <div class="pname_artist">
-        <h2>{product.product_name}</h2>
+        <h2 id="sourceElement">{product.product_name}</h2>
         <p>by {product.product_artist}</p>
       </div>
       <div class="materials">
@@ -63,6 +63,9 @@ const { product } = Astro.props;
 </MainLayout>
 
 <style>
+  .blur-background img {
+    filter: blur(4px);
+  }
   .wrapper .carousel {
     white-space: nowrap;
     cursor: pointer;
@@ -167,6 +170,7 @@ const { product } = Astro.props;
       position: sticky;
       top: 13rem;
       height: calc(100vh - 61px);
+      z-index: -2;
     }
   }
 </style>
