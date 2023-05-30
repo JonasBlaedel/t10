@@ -14,20 +14,12 @@ const data = await response.json();
 ---
 
 <MainLayout>
-  <!-- <div class="main-container">
-    {
-      data.map((product) => {
-        return <Product artist={product.product_artist} product={product.product_name} price={product.product_price} img={product.product_img_1} />;
-      })
-    }
-  </div>
-   -->
   <div class="main-container">
     {
       data.map((product, index) => {
         if (index === 2 || index === 5 || index === 8) {
           return (
-            <div class="grid" key={product.id}>
+            <div class="grid">
               <Product href={`${product.id}`} artist={product.product_artist} product={product.product_name} price={product.product_price} img={product.product_img_1} />
               {data[index + 1] && <Product href={`${data[index + 1].id}`} artist={data[index + 1].product_artist} product={data[index + 1].product_name} price={data[index + 1].product_price} img={data[index + 1].product_img_1} key={data[index + 1].id} />}
             </div>
@@ -42,14 +34,9 @@ const data = await response.json();
 </MainLayout>
 
 <style>
-  .main-container {
-    margin-top: 5rem;
-  }
-
   .grid {
     display: grid;
     gap: var(--xs-spacing);
-    margin-bottom: var(--s-spacing);
     grid-template-columns: 1fr 1fr;
   }
 
@@ -57,7 +44,7 @@ const data = await response.json();
     .main-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: var(--s-spacing);
+      gap: var(--m-spacing);
     }
     .grid {
       display: contents;
