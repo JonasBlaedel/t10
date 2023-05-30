@@ -1,8 +1,9 @@
 ---
-const { color, size, popupClass } = Astro.props;
+import MainLayout from "../components/MainLayout.astro";
+import "../style.css";
 ---
 
-<a class={color + " " + size + " " + popupClass}><slot /></a>
+<button type="submit" class="btn">Add to cart</button>
 <div class="popup" id="popup">
   <h2>Her er kurven</h2>
   <p>Tester</p>
@@ -10,36 +11,18 @@ const { color, size, popupClass } = Astro.props;
 </div>
 
 <style>
-  .blue {
+  .btn {
+    padding: 10px 60px;
     background-color: var(--blue);
-    color: var(--white);
-    border: 1px solid var(--blue);
+    border: 0;
+    outline: none;
     cursor: pointer;
-  }
-
-  .blue:hover {
-    background-color: var(--white);
-    color: var(--blue);
-    border: 1px solid var(--blue);
-  }
-
-  .white {
-    background-color: var(--white);
-    color: var(--blue);
-    border: 1px solid var(--blue);
-  }
-
-  .fit-content {
-    padding: var(--xxs-spacing) 0;
     font-size: var(--p-font-size);
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-
-  .full-width {
-    width: 100vw;
-    font-size: var(--p-font-size);
+    border-radius: 25px;
+    width: 300px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
   }
 
   .popup {
@@ -62,7 +45,6 @@ const { color, size, popupClass } = Astro.props;
     visibility: visible;
     top: 5%;
     transform: translate(75%, 30%) scale(1);
-    z-index: 10000;
   }
 
   .blur-background #popup {
