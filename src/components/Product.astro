@@ -23,14 +23,12 @@ const { artist, product, price, img, href } = Astro.props;
 </a>
 
 <style>
-  .product-card {
-    margin-top: var(--s-spacing);
-  }
   .flex {
-    display: flex;
-    justify-content: space-between;
+    margin-top: var(--xxs-spacing);
   }
-
+  .flex:last-child {
+    margin-bottom: var(--s-spacing);
+  }
   h4 {
     margin-top: var(--xxs-spacing);
   }
@@ -46,6 +44,11 @@ const { artist, product, price, img, href } = Astro.props;
     .product-card img {
       /* min-height: 500px; */
       aspect-ratio: 4/5;
+    }
+
+    .flex {
+      display: flex;
+      justify-content: space-between;
     }
   }
   li {
