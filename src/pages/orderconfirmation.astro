@@ -1,0 +1,91 @@
+---
+import MainLayout from "../components/MainLayout.astro";
+---
+
+<MainLayout>
+  <div class="wrapper">
+    <h1>Thank you!</h1>
+    <div class="h2-order">
+      <h2>The order has successfully been placed</h2>
+      <h2>You will receive an email with the order confirmation</h2>
+    </div>
+    <div class="order-details">
+      <h3 class="h3-order-details">Order details</h3>
+      <div class="order-nr">
+        <h4>Order number</h4>
+        <h4>#DK345983</h4>
+      </div>
+    </div>
+    <div class="order-item">
+      <h4>TABLEAU</h4>
+      <div class="item">
+        <p>Comfortable chair</p>
+        <p>1.800 DKK</p>
+      </div>
+    </div>
+    <hr />
+    <div class="order-item">
+      <h4>Annelie Grimwade Olofsson</h4>
+      <div class="item">
+        <p>Chaotic Moon Landing Vase</p>
+        <p>5.300 DKK</p>
+      </div>
+    </div>
+    <hr />
+    <div class="order-item">
+      <h4>Henrik Larsen</h4>
+      <div class="item">
+        <p>Elegance Vase</p>
+        <p>5.500 DKK</p>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  h1 {
+    color: var(--blue);
+    text-align: center;
+    margin-bottom: var(--s-spacing);
+  }
+
+  h2 {
+    font-family: franklin;
+    font-size: var(--h4-font-size);
+  }
+
+  .h2-order {
+    display: grid;
+    gap: var(--xs-spacing);
+    margin-block: var(--s-spacing);
+    text-align: center;
+  }
+
+  .h3-order-details {
+    color: var(--blue);
+    margin-bottom: var(--xxs-spacing);
+  }
+
+  .wrapper {
+    padding-inline: var(--xs-spacing);
+    margin-inline: auto;
+    margin-top: var(--xl-spacing);
+    max-width: 900px;
+  }
+
+  .order-item {
+    margin-block: var(--xs-spacing);
+  }
+
+  .order-nr,
+  .item {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: auto;
+  }
+
+  .order-details {
+    margin-bottom: var(--m-spacing);
+    margin-top: var(--l-spacing);
+  }
+</style>

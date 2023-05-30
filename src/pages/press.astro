@@ -5,7 +5,7 @@ import MainLayout from "../components/MainLayout.astro";
 <MainLayout>
   <div class="press-container">
     <h1>PRESS</h1>
-    <h4>PRESS@TABLEAU-CPH.COM</h4>
+    <h4 id="mail">PRESS@TABLEAU-CPH.COM</h4>
     <div class="press_year">
       <h3 class="year-nr">2023</h3>
       <div class="press-year-flex">
@@ -327,7 +327,7 @@ import MainLayout from "../components/MainLayout.astro";
               <h4>February</h4>
             </div>
             <div class="press-year-flex">
-              <h4>Bo bedre</h4>
+              <h4>Bo Bedre</h4>
               <h4>February</h4>
             </div>
             <div class="press-year-flex">
@@ -491,11 +491,15 @@ import MainLayout from "../components/MainLayout.astro";
       <style>
         h1 {
           text-align: center;
-          margin-bottom: var(--xs-spacing);
+          margin-bottom: var(--s-spacing);
         }
         h4 {
-          margin-top: var(--xxs-spacing);
+          margin-top: var(--xs-spacing);
+          font-family: franklin;
           font-weight: 200;
+        }
+        #mail {
+          font-family: larken;
         }
         .year-nr {
           font-family: helveticaH1;
@@ -519,15 +523,6 @@ import MainLayout from "../components/MainLayout.astro";
           justify-content: space-between;
           margin-inline: auto;
           max-width: 900px;
-        }
-        @media (min-width: 690px) {
-          h1 {
-            margin-bottom: var(--m-spacing);
-          }
-
-          h4 {
-            margin-top: var(--xs-spacing);
-          }
         }
       </style>
     </div>
