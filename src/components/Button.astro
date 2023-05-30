@@ -1,0 +1,39 @@
+---
+const { color, size } = Astro.props;
+---
+
+<a class={color + " " + size}><slot /></a>
+
+<style>
+  .blue {
+    background-color: var(--blue);
+    color: var(--white);
+    border: 1px solid var(--blue);
+    cursor: pointer;
+  }
+
+  .blue:hover {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+  }
+
+  .white {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+  }
+
+  .fit-content {
+    padding: var(--xxs-spacing) 0;
+    font-size: var(--p-font-size);
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .full-width {
+    width: 100vw;
+    font-size: var(--p-font-size);
+  }
+</style>

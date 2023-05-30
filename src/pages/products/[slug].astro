@@ -1,6 +1,7 @@
 ---
-import MainLayout from "../../components/MainLayout.astro";
 import "../../style.css";
+import Button from "../../components/Button.astro";
+import MainLayout from "../../components/MainLayout.astro";
 
 export async function getStaticPaths() {
   const url =
@@ -25,21 +26,40 @@ const { product } = Astro.props;
 ---
 
 <MainLayout>
-  <div class="wrapper">
-    <div class="carousel images">
-      <img class="event-img" src={`/img/${product.product_img_1}`} alt="" draggable="false" />
-      <img class="event-img" src={`/img/${product.product_img_2}`} alt="" draggable="false" />
-      <img class="event-img" src={`/img/${product.product_img_3}`} alt="" draggable="false" />
+  <section class="product-overview">
+    <div class="wrapper">
+      <div class="carousel images">
+        <img class="event-img" src={`/img/${product.product_img_1}`} alt="" draggable="false" />
+        <img class="event-img" src={`/img/${product.product_img_2}`} alt="" draggable="false" />
+        <img class="event-img" src={`/img/${product.product_img_3}`} alt="" draggable="false" />
+      </div>
     </div>
-  </div>
-  <h1>{product.product_artist}</h1>
-  <p>{product.product_name}</p>
-  <p>{product.product_description}</p>
-  <p>{product.product_dimensions}</p>
-  <p>{product.product_materials}</p>
-  <p>{product.product_weight}</p>
-  <p>{product.product_price}</p>
-  <p>{product.product_category}</p>
+
+    <div class="purchase main-container">
+      <div class="pname_artist">
+        <h2>{product.product_name}</h2>
+        <p>by {product.product_artist}</p>
+      </div>
+      <div class="materials">
+        <h4>Materials</h4>
+        <p>{product.product_materials}</p>
+      </div>
+      <div class="dimensions">
+        <h4>Size</h4>
+        <p>{product.product_dimensions}</p>
+      </div>
+      <div class="weight">
+        <h4>Weight</h4>
+        <p>{product.product_weight}</p>
+      </div>
+      <p id="price">{product.product_price},00 DKK</p>
+      <Button size="fit-content" color="blue">Add to cart</Button>
+    </div>
+    <div class="description main-container">
+      <h2>Description</h2>
+      <p>{product.product_description}</p>
+    </div>
+  </section>
 </MainLayout>
 
 <style>
@@ -69,6 +89,84 @@ const { product } = Astro.props;
   }
   .carousel.dragging img {
     pointer-events: none;
+  }
+
+  .pname_artist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--xxs-spacing);
+    align-items: flex-end;
+    margin-bottom: var(--s-spacing);
+  }
+
+  .materials p,
+  .weight p,
+  .dimensions p {
+    text-transform: uppercase;
+  }
+
+  h4 {
+    color: var(--blue);
+  }
+
+  .materials,
+  .weight,
+  .dimensions {
+    margin-bottom: var(--s-spacing);
+  }
+
+  #price {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .description {
+    margin-top: var(--m-spacing);
+  }
+  .description h2 {
+    color: var(--blue);
+  }
+
+  @media (min-width: 900px) {
+    .wrapper {
+      max-width: calc(30vw * 0.75);
+      grid-column: 2/3;
+      margin: auto;
+      margin-top: var(--m-spacing);
+    }
+
+    .wrapper .carousel {
+      overflow: visible;
+    }
+    .carousel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--m-spacing);
+    }
+    .carousel img {
+      margin-left: 0;
+    }
+    .product-overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .purchase {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      position: sticky;
+      top: 10rem;
+      height: calc(100vh - 61px);
+    }
+
+    .description {
+      max-width: 400px;
+      position: sticky;
+      top: 10rem;
+      height: calc(100vh - 61px);
+    }
   }
 </style>
 
