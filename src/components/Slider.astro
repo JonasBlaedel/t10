@@ -2,41 +2,52 @@
 import "../style.css";
 ---
 
+<div class="landing-page-container">
+  <h4>Shop by Category</h4>
+</div>
 <div class="slider_container">
   <div class="slider">
-    <div class="slider-item">
+    <a class="slider-item">
       <img src="../img/tilachair.webp" alt="Tila chair" />
       <p>Seating</p>
-    </div>
-    <div class="slider-item">
+    </a>
+    <a class="slider-item">
       <img src="../img/vase.webp" alt="Upsala vase" />
       <p>Vases</p>
-    </div>
-    <div class="slider-item">
+    </a>
+    <a class="slider-item">
       <img src="../img/palamata.webp" alt="Palmata" />
       <p>Shelving</p>
-    </div>
-    <div class="slider-item">
+    </a>
+    <a class="slider-item">
       <img src="../img/impalatable.webp" alt="Impala table" />
       <p>Table</p>
-    </div>
-    <div class="slider-item">
+    </a>
+    <a class="slider-item">
       <img src="../img/balzerlampe.webp" alt="Balzer Balzer lampe" />
       <p>Lighting</p>
-    </div>
-    <div class="slider-item">
+    </a>
+    <a class="slider-item">
       <img src="../img/zincplate.webp" alt="Zinc plate" />
       <p>Decoration</p>
-    </div>
-    <div class="slider-item">
+    </a>
+    <a class="slider-item">
       <img src="../img/skaal.webp" alt="Skål" />
       <p>Tableware</p>
-    </div>
+    </a>
   </div>
 </div>
 <hr id="hr_landing" />
 
 <style>
+  .landing-page-container {
+    width: 95%;
+    margin-inline: auto;
+  }
+  a {
+    border-bottom: none;
+    cursor: pointer;
+  }
   img {
     min-width: 100%;
     aspect-ratio: 1/1;

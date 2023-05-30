@@ -21,7 +21,6 @@
 <style>
   .hero-section {
     display: flex;
-
     overflow: hidden;
   }
 
@@ -36,6 +35,7 @@
     height: 450px;
     margin: 0;
     padding: 0;
+    margin-bottom: 15rem;
   }
 
   .wrapper-one,
@@ -44,7 +44,7 @@
   .wrapper-four {
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
+    height: fit-content;
     width: 100%;
     position: absolute;
   }
@@ -115,6 +115,17 @@
     }
     100% {
       opacity: 0;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .hero-section img {
+      aspect-ratio: 9/16;
+      max-height: 50dvh;
+    }
+
+    section {
+      margin-bottom: var(--xxs-spacing);
     }
   }
 </style>
