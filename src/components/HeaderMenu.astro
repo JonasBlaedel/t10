@@ -178,6 +178,17 @@ import "../style.css";
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
+    opacity: 0;
+    animation: logo-appear 700ms ease 150ms forwards;
+  }
+
+  @keyframes logo-appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   span.hamburger.astro-5NRTTP2S {
