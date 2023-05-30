@@ -21,10 +21,10 @@
       </div>
     </div>
     <div class="image-container">
-      <img src="img/landing-2.jpg" alt="" />
-      <img class="front-img" src="img/landing-3.jpg" alt="" />
-      <img src="img/landing-4.jpg" alt="" />
-      <img class="front-img" src="img/landing-6.jpg" alt="" />
+      <img class="hidden-left" src="img/landing-2.jpg" alt="" />
+      <img class="front-img hidden-right" src="img/landing-3.jpg" alt="" />
+      <img class="hidden-left" src="img/landing-4.jpg" alt="" />
+      <img class="front-img hidden-right" src="img/landing-6.jpg" alt="" />
     </div>
   </div>
 </div>
@@ -144,4 +144,43 @@
       margin-inline: auto;
     }
   }
+
+  .hidden-right {
+    opacity: 0;
+    /* filter: blur(5px); */
+    transform: translateX(30px);
+    transition: 1s all;
+  }
+
+  .hidden-left {
+    opacity: 0;
+    /* filter: blur(5px); */
+    transform: translateX(-30px);
+    transition: 1s all;
+    transition-delay: 150ms;
+  }
+
+  .show {
+    opacity: 1;
+    /* filter: blur(0); */
+    transform: translateX(0);
+  }
 </style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: [0] }
+  );
+
+  const hiddenElements = document.querySelectorAll(".hidden-left, .hidden-right");
+  hiddenElements.forEach((el) => {
+    observer.observe(el);
+  });
+</script>
