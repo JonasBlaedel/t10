@@ -152,6 +152,13 @@ p {
   max-width: 70ch;
 }
 
+.p_small {
+  font-family: franklin;
+  font-size: clamp(0.7rem, 0.62728rem + 0.29088vw, 0.9rem);
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
 a {
   font-family: franklin;
   font-size: clamp(0.875rem, 0.7841rem + 0.3636vw, 1.125rem);
