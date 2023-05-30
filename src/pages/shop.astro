@@ -14,14 +14,6 @@ const data = await response.json();
 ---
 
 <MainLayout>
-  <!-- <div class="main-container">
-    {
-      data.map((product) => {
-        return <Product artist={product.product_artist} product={product.product_name} price={product.product_price} img={product.product_img_1} />;
-      })
-    }
-  </div>
-   -->
   <div class="main-container">
     {
       data.map((product, index) => {
