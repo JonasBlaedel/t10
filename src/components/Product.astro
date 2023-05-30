@@ -13,7 +13,7 @@ const data = await response.json();
 const { artist, product, price, img, href } = Astro.props;
 ---
 
-<a class="product-card" href={"products/" + href}>
+<a class="product-card" href={"shop/products/" + href}>
   <img src={`/img/${img}`} alt="" />
   <h4>{artist}</h4>
   <div class="flex">
@@ -59,8 +59,3 @@ const { artist, product, price, img, href } = Astro.props;
     border-bottom: none;
   }
 </style>
-
-<script>
-  var link = document.querySelector("a");
-  link.href = link.href.replace("shop", "");
-</script>
