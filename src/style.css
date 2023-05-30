@@ -176,3 +176,10 @@ a:hover {
     padding-inline: var(--s-spacing);
   }
 }
+
+.blur-background {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 10000;
+}

@@ -1,8 +1,13 @@
 ---
-const { color, size } = Astro.props;
+const { color, size, popupClass } = Astro.props;
 ---
 
-<a class={color + " " + size}><slot /></a>
+<a class={color + " " + size + " " + popupClass}><slot /></a>
+<div class="popup" id="popup">
+  <h2>Her er kurven</h2>
+  <p>Tester</p>
+  <button type="button" class="btnclose">OK</button>
+</div>
 
 <style>
   .blue {
@@ -36,4 +41,67 @@ const { color, size } = Astro.props;
     width: 100vw;
     font-size: var(--p-font-size);
   }
+
+  .popup {
+    width: 400px;
+    background-color: var(--white);
+    border-radius: 6px;
+    position: fixed;
+    top: 20px;
+    right: 320px;
+    transform: translate(0, 0) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    border: 1px solid red;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+  }
+
+  .open-popup {
+    visibility: visible;
+    top: 5%;
+    transform: translate(75%, 30%) scale(1);
+    z-index: 10000;
+  }
+
+  .blur-background #popup {
+    backdrop-filter: none;
+    background-color: transparent;
+  }
 </style>
+
+<script>
+  let popup = document.getElementById("popup");
+  let body = document.querySelector("body");
+  let main = document.querySelector("main");
+
+  function buttonClick() {
+    document.querySelector(".btn").addEventListener("click", openPopup);
+  }
+
+  function buttonClickClose() {
+    document.querySelector(".btnclose").addEventListener("click", closePopup);
+  }
+
+  function openPopup() {
+    popup.classList.add("open-popup");
+    body.classList.add("blur-background");
+    document.addEventListener("click", outsideClick);
+  }
+
+  function closePopup() {
+    popup.classList.remove("open-popup");
+    body.classList.remove("blur-background");
+    document.removeEventListener("click", outsideClick);
+  }
+
+  function outsideClick(event) {
+    if (!popup.contains(event.target) && !event.target.classList.contains("btn")) {
+      closePopup();
+    }
+  }
+
+  buttonClick();
+  buttonClickClose();
+</script>
