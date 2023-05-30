@@ -2,39 +2,12 @@
 import MainLayout from "../components/MainLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
 import Slider from "../components/Slider.astro";
+import HeroGallery from "../components/HeroGallery.astro";
 import "../style.css";
 ---
 
 <MainLayout>
   <HeroSection />
   <Slider />
-  <!-- <div class="gallery-heading">
-    <h2 class="h2_gallery">Multidisciplinary</h2>
-    <p class="heading-p_gallery">design studio</p>
-  </div>
-  <div class="gallery-heading">
-    <h2 class="h2_gallery">and</h2>
-    <p class="heading-p_gallery">concept store</p>
-  </div> -->
+  <HeroGallery />
 </MainLayout>
-
-<style>
-  .h2_gallery {
-    font-weight: 100;
-    font-style: italic;
-  }
-
-  .heading-p_gallery {
-    font-size: 22px;
-  }
-
-  .gallery-heading {
-    display: flex;
-    align-items: baseline;
-    float: right;
-  }
-
-  .h2_gallery {
-    margin-right: 8px;
-  }
-</style>

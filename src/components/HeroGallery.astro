@@ -1,0 +1,138 @@
+<div class="landing-page-container">
+  <div class="images">
+    <div class="flex">
+      <h1>Multidisciplinary <span>creative studio</span><br /> and <span>concept store</span></h1>
+      <div class="info">
+        <p>Find us at <a href="https://goo.gl/maps/2RXNyXuxaTKme4Vj8">Store Kongensgade 50, 1624 København K</a> from:</p>
+        <div class="opening">
+          <div class="opening_hours">
+            <p>Monday - Friday</p>
+            <p>10 - 18</p>
+          </div>
+          <div class="opening_hours">
+            <p>Saturday</p>
+            <p>09 - 17</p>
+          </div>
+          <div class="opening_hours">
+            <p>Sunday</p>
+            <p>10 - 15</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="img/landing-2.jpg" alt="" />
+      <img class="front-img" src="img/landing-3.jpg" alt="" />
+      <img src="img/landing-4.jpg" alt="" />
+      <img class="front-img" src="img/landing-6.jpg" alt="" />
+    </div>
+  </div>
+</div>
+<div class="banner-container">
+  <div class="wave-wrapper">
+    <img class="wave" src="icons/filledwave.svg" alt="" />
+    <img class="wave" src="icons/filledwave.svg" alt="" />
+  </div>
+</div>
+
+<style>
+  .front-img {
+    z-index: 999;
+  }
+
+  .banner-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .wave-wrapper {
+    display: inline-flex;
+    animation: waveMove linear infinite 10s;
+    white-space: nowrap;
+    position: absolute;
+    top: 1450px;
+  }
+
+  .wave {
+    width: 100%;
+    height: 50px;
+  }
+
+  @keyframes waveMove {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .flex > * {
+    margin-block: 2rem;
+  }
+
+  .images {
+    display: flex;
+    flex-flow: wrap;
+    gap: var(--s-spacing);
+    place-content: baseline;
+    gap: 2rem;
+  }
+
+  .images img {
+    object-fit: contain;
+  }
+
+  a {
+    padding-bottom: 0;
+  }
+  h1 {
+    font-family: larken;
+    font-style: italic;
+    font-weight: 400;
+    text-align: end;
+    margin-top: var(--s-spacing);
+  }
+
+  h1 span {
+    font-family: franklin;
+    font-style: normal;
+  }
+
+  .opening_hours {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .info {
+    width: fit-content;
+  }
+
+  .opening {
+    margin-top: var(--xxs-spacing);
+  }
+
+  .image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 1rem;
+    margin-inline: auto;
+  }
+
+  img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 1500px) {
+    .flex {
+      display: flex;
+      place-items: top;
+      justify-content: space-between;
+      width: 90%;
+      margin-inline: auto;
+    }
+  }
+</style>
