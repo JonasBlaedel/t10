@@ -1,0 +1,71 @@
+---
+import "../style.css";
+import Button from "../components/Button.astro";
+---
+
+<div class="order">
+  <h4>TABLEAU</h4>
+  <div class="order_productprice">
+    <p>Luminasphere: Aesthetic Illumination for Modern Spaces</p>
+    <p>4.700 DKK</p>
+  </div>
+  <hr />
+</div>
+
+<div class="order">
+  <h4>Annelie Grimwade Olofsson</h4>
+  <div class="order_productprice">
+    <p>Chaotic Moon Landing Vase</p>
+    <p>1.800 DKK</p>
+  </div>
+  <hr />
+</div>
+
+<div class="order">
+  <h4>TABLEAU</h4>
+  <div class="order_productprice">
+    <p>Chaotic Moon Landing Vase</p>
+    <p>2000 DKK</p>
+  </div>
+  <hr />
+</div>
+
+<div class="order_total">
+  <h4>TOTAL</h4>
+  <p>8.500 DKK</p>
+</div>
+<Button color="blue" size="fit-content">Place order</Button>
+<style>
+  .order_productprice {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .order_productprice p:first-child {
+    justify-self: start;
+  }
+
+  .order_productprice p:last-child {
+    justify-self: end;
+  }
+
+  .order_productprice p {
+    margin-bottom: var(--xxs-spacing);
+  }
+
+  .order_total {
+    margin-top: var(--xs-spacing);
+    margin-bottom: var(--xs-spacing);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .order_total p {
+    justify-self: end;
+  }
+
+  .order {
+    margin-top: var(--xs-spacing);
+    margin-bottom: var(--xs-spacing);
+  }
+</style>

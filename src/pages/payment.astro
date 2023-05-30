@@ -1,9 +1,162 @@
 ---
 import MainLayout from "../components/MainLayout.astro";
+import YourOrder from "../components/YourOrder.astro";
 ---
 
 <MainLayout>
   <div class="main-container">
-    <h1>Billing details</h1>
+    <h1 id="h1-margin">Billing details</h1>
+    <div class="main_form">
+      <div class="wrapper_form">
+        <div class="form-group">
+          <label for="fname">First name *</label>
+          <input type="text" name="fname" value="John" class="form-control form-control-lg" />
+        </div>
+        <div class="form-group">
+          <label for="fname">Last name *</label>
+          <input type="text" name="fname" value="Johnsen" class="form-control form-control-lg" />
+        </div>
+      </div>
+
+      <div class="wrapper_form">
+        <div class="form-group">
+          <label for="fname">Company name (optional)</label>
+          <input type="text" name="fname" value="John" class="form-control form-control-lg" />
+        </div>
+        <div class="form-group">
+          <label for="fname">Country / Region *</label>
+          <select name="Country" class="form-control form-control-lg">
+            <option value="">Country</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Germany">Germany</option>
+            <option value="Sweden">Sweden</option>
+            <option value="USA">USA</option>
+            <option value="Norway">Norway</option>
+            <option value="Japan">Japan</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="wrapper_form">
+        <div class="form-group">
+          <label for="fname">Address *</label>
+          <input type="text" name="fname" value="Street name" class="form-control form-control-lg" />
+        </div>
+        <div class="form-group">
+          <label id="h_number" for="fname"></label>
+          <input type="text" name="fname" value="House number" class="form-control form-control-lg" />
+        </div>
+      </div>
+
+      <div class="wrapper_form">
+        <div class="form-group">
+          <label for="fname">Postcode / ZIP *</label>
+          <input type="text" name="fname" value="Postcode" class="form-control form-control-lg" />
+        </div>
+        <div class="form-group">
+          <label for="fname">Town / City *</label>
+          <input type="text" name="fname" value="Town name" class="form-control form-control-lg" />
+        </div>
+      </div>
+
+      <div class="wrapper_form">
+        <div class="form-group">
+          <label for="fname">Phone *</label>
+          <input type="text" name="fname" value="11223344" class="form-control form-control-lg" />
+        </div>
+        <div class="form-group">
+          <label for="fname">Email *</label>
+          <input type="text" name="fname" value="Email" class="form-control form-control-lg" />
+        </div>
+      </div>
+
+      <div class="wrapper_form">
+        <div class="form-group">
+          <label for="fname">Order notes (optional)</label>
+          <input type="text" name="fname" value="xx" class="form-control form-control-lg" />
+        </div>
+      </div>
+
+      <div>
+        <input type="checkbox" id="different" name="different" checked />
+        <label for="different">Ship to a different address?</label>
+      </div>
+    </div>
+
+    <h2 id="yourorder">Your order</h2>
+    <YourOrder />
+    <img src="../img/shippingpayment.webp" alt="paymentproviders" id="providers" />
+    <hr />
+    <div class="policies">
+      <p class="p_small">Refund Policy</p>
+      <p class="p_small">Shipping Policy</p>
+      <p class="p_small">Privacy Policy</p>
+      <p class="p_small">Terms of service</p>
+    </div>
   </div>
 </MainLayout>
+
+<style>
+  label {
+    font-family: "larken", sans-serif;
+  }
+
+  .wrapper_form {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: var(--xs-spacing);
+    place-items: end;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+  .form-group label {
+    margin-bottom: 5px;
+  }
+
+  .form-control {
+    padding: 5px;
+  }
+
+  input {
+    color: #838383;
+    border: 1px solid var(--blue);
+  }
+
+  select {
+    color: #838383;
+    border: 1px solid var(--blue);
+  }
+
+  #h_number {
+    margin-bottom: auto;
+  }
+
+  #h1-margin {
+    margin-bottom: var(--s-spacing);
+  }
+
+  #yourorder {
+    color: var(--blue);
+    text-align: center;
+    margin-top: var(--s-spacing);
+  }
+
+  select {
+    width: 172px;
+  }
+
+  #providers {
+    margin-top: var(--xs-spacing);
+    margin-bottom: var(--xxs-spacing);
+  }
+
+  .policies {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+  }
+</style>
