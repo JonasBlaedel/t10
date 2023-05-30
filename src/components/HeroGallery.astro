@@ -32,10 +32,18 @@
   <div class="wave-wrapper">
     <img class="wave" src="icons/filledwave.svg" alt="" />
     <img class="wave" src="icons/filledwave.svg" alt="" />
+    <img class="wave" src="icons/filledwave.svg" alt="" />
+    <img class="wave" src="icons/filledwave.svg" alt="" />
+    <img class="wave" src="icons/filledwave.svg" alt="" />
+    <img class="wave" src="icons/filledwave.svg" alt="" />
   </div>
 </div>
 
 <style>
+  body {
+    overflow-x: hidden;
+  }
+
   .front-img {
     z-index: 999;
   }
@@ -47,10 +55,11 @@
 
   .wave-wrapper {
     display: inline-flex;
-    animation: waveMove linear infinite 10s;
+    animation: waveMove linear infinite 50s;
     white-space: nowrap;
     position: absolute;
     top: 1450px;
+    left: -33px;
   }
 
   .wave {
@@ -60,10 +69,10 @@
 
   @keyframes waveMove {
     0% {
-      transform: translateX(0%);
+      transform: translateX(-10%);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-300%);
     }
   }
 
