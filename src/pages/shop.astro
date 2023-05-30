@@ -1,6 +1,8 @@
 ---
 import MainLayout from "../components/MainLayout.astro";
 import Product from "../components/Product.astro";
+import ShopFilter from "../components/ShopFilter.astro";
+
 const url = "https://klsobzjqbscpapozhswb.supabase.co/rest/v1/Product";
 
 const options = {
@@ -15,21 +17,24 @@ const data = await response.json();
 
 <MainLayout>
   <div class="main-container">
-    {
-      data.map((product, index) => {
-        if (index === 2 || index === 5 || index === 8) {
-          return (
-            <div class="grid">
-              <Product href={`${product.id}`} artist={product.product_artist} product={product.product_name} price={product.product_price} img={product.product_img_1} />
-              {data[index + 1] && <Product href={`${data[index + 1].id}`} artist={data[index + 1].product_artist} product={data[index + 1].product_name} price={data[index + 1].product_price} img={data[index + 1].product_img_1} key={data[index + 1].id} />}
-            </div>
-          );
-        } else if (index !== 3 && index !== 6 && index !== 9) {
-          return <Product href={`${product.id}`} artist={product.product_artist} product={product.product_name} price={product.product_price} img={product.product_img_1} key={product.id} />;
-        }
-        return null;
-      })
-    }
+    <ShopFilter />
+    <div class="main-grid">
+      {
+        data.map((product, index) => {
+          if (index === 2 || index === 5 || index === 8) {
+            return (
+              <div class="grid">
+                <Product href={`${product.id}`} artist={product.product_artist} product={product.product_name} price={product.product_price} img={product.product_img_1} />
+                {data[index + 1] && <Product href={`${data[index + 1].id}`} artist={data[index + 1].product_artist} product={data[index + 1].product_name} price={data[index + 1].product_price} img={data[index + 1].product_img_1} key={data[index + 1].id} />}
+              </div>
+            );
+          } else if (index !== 3 && index !== 6 && index !== 9) {
+            return <Product href={`${product.id}`} artist={product.product_artist} product={product.product_name} price={product.product_price} img={product.product_img_1} key={product.id} />;
+          }
+          return null;
+        })
+      }
+    </div>
   </div>
 </MainLayout>
 
@@ -41,10 +46,11 @@ const data = await response.json();
   }
 
   @media (min-width: 1000px) {
-    .main-container {
+    .main-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--m-spacing);
+      margin-top: var(--m-spacing);
     }
     .grid {
       display: contents;

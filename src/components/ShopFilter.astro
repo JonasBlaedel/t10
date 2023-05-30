@@ -1,0 +1,206 @@
+---
+import Button from "../components/Button.astro";
+const url = "https://klsobzjqbscpapozhswb.supabase.co/rest/v1/Product";
+
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtsc29iempxYnNjcGFwb3poc3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNDE5ODIsImV4cCI6MjAwMDkxNzk4Mn0.elYt1kZI8qijTDQryIWku28K5ky5WiMSnBdACGiLiK0",
+  },
+};
+
+const response = await fetch(url, options);
+const data = await response.json();
+---
+
+<div class="filter">
+  <button class="filter-trigger">
+    <p>Filter</p>
+    <img class="dropdown-arrow" src="icons/dropdown-arrow.svg" alt="" />
+  </button>
+  <div class="filter-content">
+    <div class="filter-layout">
+      <div class="filter-list artist">
+        <h4>Artist</h4>
+        {
+          data.map((artist) => (
+            <>
+              <div class="input">
+                <input type="checkbox" id="checkbox1-1" name="checkbox1" value="checkbox1-1" />
+                <label for="checkbox1-1">{artist.product_artist}</label>
+              </div>
+            </>
+          ))
+        }
+      </div>
+      <div class="filter-list category">
+        <h4>Category</h4>
+        {
+          [...new Set(data.map((artist) => artist.product_category))].map((category) => (
+            <>
+              <div class="input">
+                <input type="checkbox" id={category} name={category} value={category} />
+                <label htmlFor={category}>{category}</label>
+              </div>
+            </>
+          ))
+        }
+      </div>
+      <div class="filter-list price">
+        <h4>Price</h4>
+        <div class="input">
+          <input type="checkbox" id="checkbox1-1" name="checkbox1" value="checkbox1-1" />
+          <label for="checkbox1-1">0 - 1.000 DKK</label>
+        </div>
+        <div class="input">
+          <input type="checkbox" id="checkbox1-1" name="checkbox1" value="checkbox1-1" />
+          <label for="checkbox1-1">1.000 - 3.000 DKK</label>
+        </div>
+        <div class="input">
+          <input type="checkbox" id="checkbox1-1" name="checkbox1" value="checkbox1-1" />
+          <label for="checkbox1-1">3.000 - 5.000 DKK</label>
+        </div>
+        <div class="input">
+          <input type="checkbox" id="checkbox1-1" name="checkbox1" value="checkbox1-1" />
+          <label for="checkbox1-1">6.000 - 10.000 DKK</label>
+        </div>
+      </div>
+      <div class="filter-list exhibition">
+        <h4>Exhibition</h4>
+        {
+          data.map((artist) => (
+            <>
+              <div class="input">
+                <input type="checkbox" id="checkbox1-1" name="checkbox1" value="checkbox1-1" />
+                <label for="checkbox1-1">{artist.product_exhibition}</label>
+              </div>
+            </>
+          ))
+        }
+      </div>
+    </div>
+    <div id="resetButton"><Button id="resetButton" size="fit-content" color="blue">Reset</Button></div>
+
+    <style>
+      #resetButton {
+        margin-top: var(--xs-spacing);
+      }
+
+      label {
+        font-family: franklin;
+        font-size: clamp(0.875rem, 0.7841rem + 0.3636vw, 1.125rem);
+      }
+
+      .filter-trigger {
+        display: flex;
+        justify-content: space-between;
+        place-items: center;
+        border: 1px solid var(--blue);
+        padding: var(--xs-spacing);
+        width: 100%;
+        background-color: var(--white);
+        cursor: pointer;
+      }
+
+      .filter {
+        width: 100%;
+        background-color: white;
+        overflow: scroll;
+        margin-bottom: 2rem;
+      }
+
+      .filter-layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .input {
+        display: flex;
+        gap: var(--xs-spacing);
+        margin-block: var(--s-spacing);
+        place-items: baseline;
+      }
+
+      .filter-content {
+        display: none;
+        height: 0;
+        background-color: var(--white);
+        width: 100%;
+        transform: translateY(-20px);
+        transition: height 0.3s ease, transform 0.3s ease;
+        top: 57px;
+        padding: var(--xs-spacing);
+        border-bottom: 1px solid var(--blue);
+        border-left: 1px solid var(--blue);
+        border-right: 1px solid var(--blue);
+      }
+
+      .filter-content.show {
+        height: auto;
+        transform: translateY(0);
+      }
+
+      .filter-content.hide {
+        height: 0;
+        transform: translateY(-20px);
+      }
+
+      .dropdown-arrow {
+        transition: transform 0.3s ease;
+      }
+
+      .dropdown-arrow.rotate {
+        transform: rotate(180deg);
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterTrigger = document.querySelector(".filter-trigger");
+        const filterContent = document.querySelector(".filter-content");
+        const dropdownArrow = document.querySelector(".dropdown-arrow");
+        let isContentVisible = false;
+
+        filterTrigger.addEventListener("click", function () {
+          if (isContentVisible) {
+            // If content is already visible, hide it
+            filterContent.classList.remove("show");
+            filterContent.classList.add("hide");
+            dropdownArrow.classList.remove("rotate");
+            setTimeout(function () {
+              filterContent.style.display = "none";
+              filterContent.classList.remove("hide");
+            });
+          } else {
+            // Otherwise, show the content and animate it in
+            filterContent.style.display = "block";
+            setTimeout(function () {
+              filterContent.classList.add("show");
+              dropdownArrow.classList.add("rotate");
+            }, 10);
+          }
+
+          // Toggle the content visibility flag and rotate class
+          isContentVisible = !isContentVisible;
+        });
+
+        // Reset rotation when the content is hidden
+        filterContent.addEventListener("transitionend", function () {
+          if (!isContentVisible) {
+            dropdownArrow.classList.remove("rotate");
+          }
+        });
+      });
+
+      // Add event listener to the Reset button
+      document.getElementById("resetButton").addEventListener("click", function () {
+        // Get all checkbox buttons
+        var checkboxs = document.querySelectorAll("input[type=checkbox]");
+
+        // Loop through the checkbox buttons and uncheck them
+        checkboxs.forEach(function (checkbox) {
+          checkbox.checked = false;
+        });
+      });
+    </script>
+  </div>
+</div>
