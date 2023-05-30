@@ -1,0 +1,98 @@
+---
+import "../style.css";
+---
+
+<div class="slider_container">
+  <div class="slider">
+    <div class="slider-item">
+      <img src="../img/tilachair.webp" alt="Tila chair" />
+      <p>Seating</p>
+    </div>
+    <div class="slider-item">
+      <img src="../img/vase.webp" alt="Upsala vase" />
+      <p>Vases</p>
+    </div>
+    <div class="slider-item">
+      <img src="../img/palamata.webp" alt="Palmata" />
+      <p>Shelving</p>
+    </div>
+    <div class="slider-item">
+      <img src="../img/impalatable.webp" alt="Impala table" />
+      <p>Table</p>
+    </div>
+    <div class="slider-item">
+      <img src="../img/balzerlampe.webp" alt="Balzer Balzer lampe" />
+      <p>Lighting</p>
+    </div>
+    <div class="slider-item">
+      <img src="../img/zincplate.webp" alt="Zinc plate" />
+      <p>Decoration</p>
+    </div>
+    <div class="slider-item">
+      <img src="../img/skaal.webp" alt="Skål" />
+      <p>Tableware</p>
+    </div>
+  </div>
+</div>
+<hr id="hr_landing" />
+
+<style>
+  img {
+    min-width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  .slider_container {
+    width: 100vw;
+    overflow-x: auto;
+    margin-bottom: var(--xs-spacing);
+  }
+
+  .slider {
+    display: flex;
+    gap: var(--medium);
+    margin-top: var(--small);
+    padding-bottom: var(--s-spacing);
+    justify-content: space-between;
+  }
+
+  .slider-item {
+    flex-shrink: 0;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .slider-item p {
+    margin-top: var(--xxs-spacing);
+  }
+
+  #hr_landing {
+    width: 85%;
+    margin: auto;
+  }
+
+  @media (min-width: 690px) {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .slider-item {
+      text-align: center;
+      width: 100%;
+    }
+
+    .slider {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      justify-items: center;
+    }
+
+    .slider_container {
+      overflow-x: visible;
+    }
+  }
+</style>
