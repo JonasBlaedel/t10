@@ -1,9 +1,143 @@
 ---
+import Button from "../components/Button.astro";
 import MainLayout from "../components/MainLayout.astro";
+import "../style.css";
 ---
 
 <MainLayout>
   <div class="main-container">
     <h1>Your cart</h1>
+    <hr class="hr2" />
+    <div class="grid3_2">
+      <div class="in_cart">
+        <div class="item_in_cart">
+          <img src="/img/vases2_3.webp" alt="" />
+          <div class="product_info_cart">
+            <h4 class="uppercase">Michael Brown</h4>
+            <p class="product_name_cart">Contemporary Vase</p>
+            <p class="product_price_cart">500 DKK</p>
+          </div>
+        </div>
+        <div class="item_in_cart">
+          <img src="/img/vases2_3.webp" alt="" />
+          <div class="product_info_cart">
+            <h4 class="uppercase">Michael Brown</h4>
+            <p class="product_name_cart">Contemporary Vase</p>
+            <p class="product_price_cart">500 DKK</p>
+          </div>
+        </div>
+        <div class="item_in_cart">
+          <img src="/img/vases2_3.webp" alt="" />
+          <div class="product_info_cart">
+            <h4 class="uppercase">Michael Brown</h4>
+            <p class="product_name_cart">Contemporary Vase</p>
+            <p class="product_price_cart">500 DKK</p>
+          </div>
+        </div>
+
+        <div class="total">
+          <p class="uppercase">Total</p>
+          <p>8.300 DKK</p>
+        </div>
+      </div>
+      <div class="proceed">
+        <img class="purchase-process" src="/icons/basket-overview.svg" alt="purchase process" />
+        <Button href="/payment" size="fit-content" color="blue">Proceed to checkout</Button>
+      </div>
+    </div>
   </div>
+
+  <style>
+    h1 {
+      margin-bottom: var(--m-spacing);
+    }
+    .in_cart {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item_in_cart {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--xs-spacing);
+      align-items: flex-end;
+      border-bottom: 1px solid black;
+      margin-top: var(--xs-spacing);
+      padding-bottom: var(--xs-spacing);
+    }
+    .item_in_cart img {
+      object-fit: cover;
+      max-width: 100%;
+      aspect-ratio: 1/1;
+    }
+    .item_in_cart p {
+      margin-top: var(--xs-spacing);
+    }
+
+    p.product_price_cart {
+      text-align: right;
+    }
+
+    .product_info_cart {
+      margin-bottom: var(--s-spacing);
+    }
+
+    .grid3_2 img {
+      display: ;
+    }
+
+    .purchase-process {
+      display: none;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      margin: var(--s-spacing) 0;
+    }
+
+    @media (min-width: 690px) {
+      .grid3_2 {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: var(--xl-spacing);
+      }
+
+      div.item_in_cart.astro-H3ZW4U6D {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      div.product_info_cart.astro-H3ZW4U6D {
+        grid-column: 2/6;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      div.product_info_cart p {
+        margin-bottom: var(--xs-spacing);
+      }
+
+      .purchase-process {
+        display: block;
+      }
+
+      .proceed {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--m-spacing);
+      }
+      .hr2 {
+        width: 2px;
+        height: 90%;
+        position: absolute;
+        top: 12%;
+        left: 59%;
+        background-color: var(--grey);
+      }
+    }
+  </style>
 </MainLayout>

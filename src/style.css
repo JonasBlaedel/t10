@@ -167,6 +167,7 @@ a:hover {
   padding-inline: var(--xs-spacing);
   margin-inline: auto;
   margin-top: var(--xl-spacing);
+  position: relative;
 }
 
 .header_footer {
@@ -197,4 +198,8 @@ a:hover {
 .landing-page-container {
   width: 95%;
   margin-inline: auto;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

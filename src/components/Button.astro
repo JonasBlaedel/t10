@@ -4,14 +4,14 @@ const { color, size, popupClass } = Astro.props;
 
 <div class="overlay blur-background"></div>
 
-<a class={color + " " + size + " " + popupClass}><slot /></a>
+<a class={color + " " + size + " " + popupClass} href={Astro.props.href}><slot /></a>
 <div class="popup" id="popup">
   <img id="destinationImage" src="path/to/placeholder-image.jpg" alt="Placeholder Image" />
   <div class="popup-content">
     <p>You have added <span id="destinationElement"></span> to your cart</p>
     <div class="popupbuttons">
-      <a href="" class="blue">Keep browsing</a>
-      <a href="" class="white">View cart</a>
+      <a href="/shop" class="blue">Keep browsing</a>
+      <a href="/cart" class="white">View cart</a>
     </div>
   </div>
 
@@ -65,6 +65,7 @@ const { color, size, popupClass } = Astro.props;
     .fit-content {
       padding: var(--xxs-spacing) 0;
       font-size: var(--p-font-size);
+      text-transform: uppercase;
       width: 100%;
       display: block;
       text-align: center;
