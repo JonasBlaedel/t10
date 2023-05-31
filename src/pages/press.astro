@@ -5,7 +5,7 @@ import MainLayout from "../components/MainLayout.astro";
 <MainLayout>
   <div class="press-container">
     <h1>PRESS</h1>
-    <h4 id="mail">PRESS@TABLEAU-CPH.COM</h4>
+    <a href="mailto:PRESS@TABLEAU-CPH.COM" id="mail">PRESS@TABLEAU-CPH.COM</a>
     <div class="press_year">
       <h3 class="year-nr">2023</h3>
       <div class="press-year-flex">
@@ -499,7 +499,9 @@ import MainLayout from "../components/MainLayout.astro";
           font-weight: 200;
         }
         #mail {
-          font-family: larken;
+          font-family: larken !important;
+          font-size: var(--h4-font-size);
+          margin-top: var(--xs-spacing);
         }
         .year-nr {
           font-family: helveticaH1;
