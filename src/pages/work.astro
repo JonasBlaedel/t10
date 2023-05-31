@@ -1,0 +1,48 @@
+---
+import MainLayout from "../components/MainLayout.astro";
+import "../style.css";
+---
+
+<MainLayout>
+  <div class="main-container work-design">
+    <h1 class="uppercase">Coming Soon</h1>
+    <div class="worktext">
+      <p class="text">Until then</p>
+      <p class="text">you can dive into</p>
+      <p class="text">our creative space</p>
+    </div>
+    <video src=""></video>
+  </div>
+</MainLayout>
+
+<style>
+  .work-design {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h1 {
+    margin-bottom: var(--m-spacing);
+  }
+
+  .worktext {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+  }
+
+  .text {
+    flex-grow: 1;
+    height: 50px;
+  }
+
+  .text:nth-child(odd) {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .text:nth-child(even) {
+    justify-content: flex-start;
+  }
+</style>
