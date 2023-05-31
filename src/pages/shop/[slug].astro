@@ -98,7 +98,6 @@ const { product } = Astro.props;
     cursor: grab;
     scroll-behavior: auto;
   }
-
   .carousel.dragging img {
     pointer-events: none;
   }
@@ -200,34 +199,28 @@ const { product } = Astro.props;
   let isDragStart = false,
     isDragging = false,
     prevPageX,
-    prevPageY,
     prevScrollLeft,
-    positionDiffX,
-    positionDiffY;
+    positionDiff;
 
   let firstImgWidth = firstImg.clientWidth + 14;
   let scrollWidth = carousel.scrollWidth - carousel.clientWidth;
 
-  let verticalDistance = 0;
-  let horizontalDistance = 0;
-
   const autoSlide = () => {
     if (carousel.scrollLeft == carousel.scrollWidth - carousel.clientWidth) return;
 
-    positionDiffX = Math.abs(positionDiffX);
+    positionDiff = Math.abs(positionDiff);
     let firstImgWidth = firstImg.clientWidth + 14;
-    let valDifference = firstImgWidth - positionDiffX;
+    let valDifference = firstImgWidth - positionDiff;
 
     if (carousel.scrollLeft > prevScrollLeft) {
-      return (carousel.scrollLeft += positionDiffX > firstImgWidth / 3 ? valDifference : -positionDiffX);
+      return (carousel.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff);
     }
-    carousel.scrollLeft -= positionDiffX > firstImgWidth / 3 ? valDifference : -positionDiffX;
+    carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
   };
 
   const dragStart = (e) => {
     isDragStart = true;
     prevPageX = e.pageX || e.touches[0].pageX;
-    prevPageY = e.pageY || e.touches[0].pageY;
     prevScrollLeft = carousel.scrollLeft;
   };
 
@@ -236,14 +229,8 @@ const { product } = Astro.props;
     e.preventDefault();
     isDragging = true;
     carousel.classList.add("dragging");
-    const currentPageX = e.pageX || e.touches[0].pageX;
-    const currentPageY = e.pageY || e.touches[0].pageY;
-    positionDiffX = currentPageX - prevPageX;
-    positionDiffY = currentPageY - prevPageY;
-    carousel.scrollLeft = prevScrollLeft - positionDiffX;
-
-    horizontalDistance += Math.abs(positionDiffX);
-    verticalDistance += Math.abs(positionDiffY);
+    positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+    carousel.scrollLeft = prevScrollLeft - positionDiff;
   };
 
   const dragStop = () => {
@@ -252,36 +239,8 @@ const { product } = Astro.props;
 
     if (!isDragging) return;
     isDragging = false;
-
-    if (verticalDistance > horizontalDistance && positionDiffY > 0) {
-      // Prioritize downward dragging
-      const threshold = 50; // Adjust the threshold as needed
-
-      if (verticalDistance >= threshold) {
-        // Perform the desired function when downward dragging is prioritized
-        const scrollToNextSection = () => {
-          const sectionHeight = window.innerHeight;
-          const currentScroll = window.scrollY;
-          const nextSectionOffset = Math.ceil((currentScroll + sectionHeight) / sectionHeight) * sectionHeight;
-
-          window.scrollTo({
-            top: nextSectionOffset,
-            behavior: "smooth",
-          });
-        };
-
-        scrollToNextSection();
-      }
-    } else {
-      // Implement your logic for horizontal dragging
-      autoSlide();
-    }
-
-    // Reset distance counters
-    verticalDistance = 0;
-    horizontalDistance = 0;
+    autoSlide();
   };
-
   carousel.addEventListener("mousedown", dragStart);
   carousel.addEventListener("touchstart", dragStart);
 
