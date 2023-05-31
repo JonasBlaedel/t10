@@ -79,7 +79,8 @@ const { color, size, popupClass } = Astro.props;
     }
 
     .popup {
-      width: 300px;
+      width: 100vw;
+      max-width: 500px;
       max-height: 200px;
       display: grid;
       gap: var(--xxs-spacing);
@@ -118,7 +119,7 @@ const { color, size, popupClass } = Astro.props;
     .open-popup {
       visibility: visible;
       top: 5%;
-      transform: translate(93%, 30%) scale(1);
+      transform: translate(85%, 30%) scale(1);
       z-index: 10000;
     }
 
