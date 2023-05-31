@@ -21,7 +21,7 @@ const { color, size, popupClass } = Astro.props;
     }
 
     #destinationImage {
-      height: -webkit-fill-available;
+      aspect-ratio: 3/5;
       object-fit: cover;
       padding: 0.8rem 0;
     }
@@ -44,6 +44,7 @@ const { color, size, popupClass } = Astro.props;
       visibility: visible;
       opacity: 0.6;
       z-index: 9999;
+      pointer-events: none;
     }
     .blue {
       background-color: var(--blue);
