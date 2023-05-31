@@ -4,113 +4,160 @@ import YourOrder from "../components/YourOrder.astro";
 ---
 
 <MainLayout>
-  <h1 id="h1-margin">Billing details</h1>
   <div class="main-container">
-    <div class="billing">
-      <div class="main_form">
-        <div class="wrapper_form">
-          <div class="form-group">
-            <label for="fname">First name *</label>
-            <input type="text" name="fname" placeholder="John" class="form-control form-control-lg" />
-          </div>
-          <div class="form-group">
-            <label for="fname">Last name *</label>
-            <input type="text" name="fname" placeholder="Johnsen" class="form-control form-control-lg" />
-          </div>
-        </div>
-
-        <div class="wrapper_form">
-          <div class="form-group">
-            <label for="fname">Company name</label>
-            <input type="text" name="fname" placeholder="John" class="form-control form-control-lg" />
-          </div>
-          <div class="form-group">
-            <label for="fname">Country / Region *</label>
-            <select name="Country" class="form-control form-control-lg">
-              <option value="">Country</option>
-              <option value="Denmark">Denmark</option>
-              <option value="Germany">Germany</option>
-              <option value="Sweden">Sweden</option>
-              <option value="USA">USA</option>
-              <option value="Norway">Norway</option>
-              <option value="Japan">Japan</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <section class="address">
-        <div class="wrapper_form">
-          <div class="form-group">
-            <label for="fname">Address *</label>
-            <input type="text" name="fname" placeholder="Street name" class="form-control form-control-lg" />
-          </div>
-          <div class="form-group">
-            <label id="h_number" for="fname"></label>
-            <input type="text" name="fname" placeholder="House number" class="form-control form-control-lg" />
-          </div>
-        </div>
-
-        <div class="wrapper_form">
-          <div class="form-group">
-            <label for="fname">Postcode / ZIP *</label>
-            <input type="text" name="fname" placeholder="Postcode" class="form-control form-control-lg" />
-          </div>
-          <div class="form-group">
-            <label for="fname">Town / City *</label>
-            <input type="text" name="fname" placeholder="Town name" class="form-control form-control-lg" />
-          </div>
-        </div>
-      </section>
-
-      <div class="wrapper_form">
-        <div class="form-group">
-          <label for="fname">Phone *</label>
-          <input type="number" name="fname" placeholder="11223344" class="form-control form-control-lg" />
-        </div>
-        <div class="form-group">
-          <label for="fname">Email *</label>
-          <input type="text" name="fname" placeholder="Email" class="form-control form-control-lg" />
-        </div>
-      </div>
-
-      <div class="wrapper_form">
-        <div class="form-group">
-          <label for="fname">Order notes (optional)</label>
-          <input type="text" name="fname" placeholder="xx" class="form-control form-control-lg" />
-        </div>
-      </div>
-    </div>
-
-    <div class="your_order">
-      <h2 id="yourorder">Your order</h2>
-      <YourOrder />
-      <img src="../img/shippingpayment.webp" alt="paymentproviders" id="providers" />
+    <h1 id="h1-margin">Billing details</h1>
+    <div class="grid1_1">
       <hr class="hr2" />
-      <div class="policies">
-        <p class="p_small">Refund Policy</p>
-        <p class="p_small">Shipping Policy</p>
-        <p class="p_small">Privacy Policy</p>
-        <p class="p_small">Terms of service</p>
+      <div class="billing">
+        <div class="main_form">
+          <div class="wrapper_form">
+            <div class="form-group">
+              <label for="fname">First name *</label>
+              <input type="text" name="fname" placeholder="John" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+              <label for="fname">Last name *</label>
+              <input type="text" name="fname" placeholder="Johnsen" class="form-control form-control-lg" />
+            </div>
+          </div>
+          <div class="wrapper_form">
+            <div class="form-group">
+              <label for="fname">Company name</label>
+              <input type="text" name="fname" placeholder="John" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+              <label for="fname">Country / Region *</label>
+              <select name="Country" class="form-control form-control-lg">
+                <option value="">Country</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Germany">Germany</option>
+                <option value="Sweden">Sweden</option>
+                <option value="USA">USA</option>
+                <option value="Norway">Norway</option>
+                <option value="Japan">Japan</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <section class="address">
+          <div class="wrapper_form">
+            <div class="form-group">
+              <label for="fname">Address *</label>
+              <input type="text" name="fname" placeholder="Street name" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+              <label id="h_number" for="fname"></label>
+              <input type="text" name="fname" placeholder="House number" class="form-control form-control-lg" />
+            </div>
+          </div>
+
+          <div class="wrapper_form">
+            <div class="form-group">
+              <label for="fname">Postcode / ZIP *</label>
+              <input type="text" name="fname" placeholder="Postcode" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+              <label for="fname">Town / City *</label>
+              <input type="text" name="fname" placeholder="Town name" class="form-control form-control-lg" />
+            </div>
+          </div>
+        </section>
+
+        <div class="wrapper_form">
+          <div class="form-group">
+            <label for="fname">Phone *</label>
+            <input type="number" name="fname" placeholder="11223344" class="form-control form-control-lg" />
+          </div>
+          <div class="form-group">
+            <label for="fname">Email *</label>
+            <input type="text" name="fname" placeholder="Email" class="form-control form-control-lg" />
+          </div>
+        </div>
+
+        <div class="wrapper_form">
+          <div class="form-group">
+            <label for="fname">Order notes (optional)</label>
+            <input type="text" name="fname" placeholder="xx" class="form-control form-control-lg" />
+          </div>
+        </div>
+      </div>
+
+      <div class="your_order">
+        <h2 id="yourorder">Your order</h2>
+        <YourOrder />
+        <div class="payment_options">
+          <div class="checkout_with">
+            <h4>Checkout with</h4>
+            <img src="/icons/reepay-logo.png" alt="reepay logo" />
+          </div>
+          <div class="payment-icons">
+            <img src="/icons/mastercard-logo.png" alt="mastercard logo" />
+            <img src="/icons/MP-logo.png" alt="Mobile pay logo" />
+            <img src="/icons/securecode-logo.png" alt="Mastercard secure code logo" />
+            <img src="/icons/verified-by-visa-logo.png" alt="Verified by visa logo" />
+            <img src="/icons/visa-card-electron.png" alt="Visa electron logo" />
+            <img src="/icons/visa-logo.png" alt="visa logo" />
+          </div>
+        </div>
+        <hr />
+        <div class="policies">
+          <p class="p_small">Refund Policy</p>
+          <p class="p_small">Shipping Policy</p>
+          <p class="p_small">Privacy Policy</p>
+          <p class="p_small">Terms of service</p>
+        </div>
       </div>
     </div>
   </div>
 </MainLayout>
 
 <style>
+  .payment_options {
+    margin-bottom: var(--m-spacing);
+  }
+  .checkout_with {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+  }
+  .checkout_with img {
+    width: 100px;
+  }
+  .payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-top: 2rem 0;
+    flex-wrap: wrap;
+  }
+  .payment-icons img {
+    width: 50px;
+  }
+  .grid1_1 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .billing {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   label {
     font-family: franklin;
   }
 
   .wrapper_form {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: var(--xs-spacing);
-    place-items: end;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--xxs-spacing);
+    margin-bottom: var(--xxs-spacing);
   }
   .form-group {
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
   }
 
   .form-group label {
@@ -167,6 +214,13 @@ import YourOrder from "../components/YourOrder.astro";
     width: 50vw;
   }
 
+  div.main_form.astro-MV2QMI5Q {
+    margin-bottom: var(--m-spacing);
+  }
+
+  section.address.astro-MV2QMI5Q {
+    margin-bottom: var(--m-spacing);
+  }
   @media (min-width: 690px) {
     .hr2 {
       width: 2px;
@@ -177,20 +231,25 @@ import YourOrder from "../components/YourOrder.astro";
       background-color: var(--grey);
     }
 
-    .main-container {
+    .billing {
+      flex-direction: column;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .grid1_1 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      position: relative;
     }
 
     .your_order {
-      /* margin-left: var(--xl-spacing); */
-      margin: auto;
-      max-width: 500px;
+      margin: 0 var(--l-spacing);
     }
 
     .billing {
       margin: auto;
-      width: 500px;
+
       /* margin-left: var(--l-spacing); */
     }
     input,
