@@ -21,9 +21,9 @@ const { color, size, popupClass } = Astro.props;
     }
 
     #destinationImage {
-      height: 100px;
-      aspect-ratio: 1/1;
+      height: -webkit-fill-available;
       object-fit: cover;
+      padding: 0.8rem 0;
     }
     .overlay {
       position: fixed;
@@ -79,8 +79,9 @@ const { color, size, popupClass } = Astro.props;
     }
 
     .popup {
-      width: 500px;
+      width: 300px;
       display: grid;
+      gap: var(--xxs-spacing);
       grid-template-columns: repeat(5, 1fr);
       background-color: var(--white);
       position: fixed;
@@ -103,24 +104,67 @@ const { color, size, popupClass } = Astro.props;
       grid-column: 2/6;
       grid-row: 1/2;
       display: grid;
+      gap: var(--xxs-spacing);
     }
     .popupbuttons {
       grid-row: 2/3;
-      display: flex;
-      justify-content: space-around;
+      display: grid;
+      justify-content: center;
+      gap: var(--xxs-spacing);
       align-items: center;
     }
 
     .open-popup {
       visibility: visible;
       top: 5%;
-      transform: translate(60%, 30%) scale(1);
+      transform: translate(93%, 30%) scale(1);
       z-index: 10000;
     }
 
     .blur-background #popup {
       backdrop-filter: none;
       background-color: transparent;
+    }
+
+    @media (min-width: 690px) {
+      .popup {
+        width: 500px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        background-color: var(--white);
+        position: fixed;
+        top: 20px;
+        right: 320px;
+        transform: translate(0, 0) scale(0.1);
+        text-align: center;
+        padding: var(--xs-spacing);
+        color: #333;
+        border: 1px solid var(--blue);
+        visibility: hidden;
+        transition: transform 0.4s, top 0.4s;
+        z-index: 9999;
+      }
+      .popup img {
+        grid-column: 1/2;
+      }
+
+      .popup-content {
+        grid-column: 2/6;
+        grid-row: 1/2;
+        display: grid;
+      }
+      .popupbuttons {
+        grid-row: 2/3;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .open-popup {
+        visibility: visible;
+        top: 5%;
+        transform: translate(60%, 30%) scale(1);
+        z-index: 10000;
+      }
     }
   </style>
 
