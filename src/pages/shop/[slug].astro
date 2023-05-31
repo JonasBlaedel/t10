@@ -222,6 +222,7 @@ const { product } = Astro.props;
     isDragStart = true;
     prevPageX = e.pageX || e.touches[0].pageX;
     prevScrollLeft = carousel.scrollLeft;
+    e.preventDefault(); // Prevent default touch behavior
   };
 
   const dragging = (e) => {
@@ -241,6 +242,7 @@ const { product } = Astro.props;
     isDragging = false;
     autoSlide();
   };
+
   carousel.addEventListener("mousedown", dragStart);
   carousel.addEventListener("touchstart", dragStart);
 
