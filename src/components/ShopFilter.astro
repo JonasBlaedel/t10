@@ -158,55 +158,57 @@ const data = await response.json();
     </style>
   </div>
 </div>
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    console.log("hul igennem?");
-    const filterTrigger = document.querySelector(".filter-trigger") as HTMLElement;
-    const filterContent = document.querySelector(".filter-content") as HTMLDivElement;
-    const dropdownArrow = document.querySelector(".dropdown-arrow") as HTMLElement;
+    const filterTrigger = document.querySelector(".filter-trigger");
+    const filterContent = document.querySelector(".filter-content");
+    const dropdownArrow = document.querySelector(".dropdown-arrow");
     let isContentVisible = false;
 
-    filterTrigger.addEventListener("click", function () {
-      console.log("click på filter?");
-      if (isContentVisible) {
-        // If content is already visible, hide it
-        filterContent.classList.remove("show");
-        filterContent.classList.add("hide");
-        dropdownArrow.classList.remove("rotate");
-        setTimeout(function () {
-          filterContent.style.display = "none";
-          filterContent.classList.remove("hide");
-        });
-      } else {
-        // Otherwise, show the content and animate it in
-        filterContent.style.display = "block";
-        setTimeout(function () {
-          filterContent.classList.add("show");
-          dropdownArrow.classList.add("rotate");
-        }, 10);
-      }
+    if (filterTrigger && filterContent && dropdownArrow) {
+      filterTrigger.addEventListener("click", function () {
+        if (isContentVisible) {
+          // If content is already visible, hide it
+          filterContent.classList.remove("show");
+          filterContent.classList.add("hide");
+          dropdownArrow.classList.remove("rotate");
+          setTimeout(function () {
+            filterContent.style.display = "none";
+            filterContent.classList.remove("hide");
+          });
+        } else {
+          // Otherwise, show the content and animate it in
+          filterContent.style.display = "block";
+          setTimeout(function () {
+            filterContent.classList.add("show");
+            dropdownArrow.classList.add("rotate");
+          }, 10);
+        }
 
-      // Toggle the content visibility flag and rotate class
-      isContentVisible = !isContentVisible;
-    });
+        // Toggle the content visibility flag and rotate class
+        isContentVisible = !isContentVisible;
+      });
 
-    // Reset rotation when the content is hidden
-    filterContent.addEventListener("transitionend", function () {
-      if (!isContentVisible) {
-        dropdownArrow.classList.remove("rotate");
-      }
-    });
+      // Reset rotation when the content is hidden
+      filterContent.addEventListener("transitionend", function () {
+        if (!isContentVisible) {
+          dropdownArrow.classList.remove("rotate");
+        }
+      });
+    }
 
     // Add event listener to the Reset button
-    document.getElementById("resetButton").addEventListener("click", function () {
-      // Get all checkbox buttons
-      var checkboxes = document.querySelectorAll("input[type=checkbox]");
+    const resetButton = document.getElementById("resetButton");
+    if (resetButton) {
+      resetButton.addEventListener("click", function () {
+        // Get all checkbox buttons
+        var checkboxes = document.querySelectorAll("input[type=checkbox]");
 
-      // Loop through the checkbox buttons and uncheck them
-      checkboxes.forEach(function (checkbox) {
-        (checkbox as HTMLInputElement).checked = false;
+        // Loop through the checkbox buttons and uncheck them
+        checkboxes.forEach(function (checkbox) {
+          checkbox.checked = false;
+        });
       });
-    });
+    }
   });
 </script>
