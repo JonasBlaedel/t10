@@ -171,9 +171,12 @@ import YourOrder from "../components/YourOrder.astro";
   }
 
   input {
-    color: #838383;
+    color: var(--black);
     border: 1px solid var(--blue);
     font-family: franklin;
+  }
+  ::placeholder {
+    color: var(--grey);
   }
 
   select {
