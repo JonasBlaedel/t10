@@ -12,33 +12,39 @@ import "../style.css";
       <hr class="hr2" />
       <div class="in_cart">
         <div class="item_in_cart">
-          <img src="/img/vases2_3.webp" alt="" />
+          <img src="/img/seating3_1.webp" alt="" />
           <div class="product_info_cart">
-            <h4 class="uppercase">Michael Brown</h4>
-            <p class="product_name_cart">Contemporary Vase</p>
-            <p class="product_price_cart">500 DKK</p>
+            <h4 class="uppercase">TABLEAU</h4>
+            <div class="div-right">
+              <p class="product_name_cart">Comfortable Chair</p>
+              <p class="product_price_cart">5.500 DKK</p>
+            </div>
+          </div>
+        </div>
+        <div class="item_in_cart">
+          <img src="/img/vases1_2.webp" alt="" />
+          <div class="product_info_cart">
+            <h4 class="uppercase">Annelie Olofsson</h4>
+            <div class="div-right">
+              <p class="product_name_cart">Moon Landing Vase</p>
+              <p class="product_price_cart">5.300 DKK</p>
+            </div>
           </div>
         </div>
         <div class="item_in_cart">
           <img src="/img/vases2_3.webp" alt="" />
           <div class="product_info_cart">
-            <h4 class="uppercase">Michael Brown</h4>
-            <p class="product_name_cart">Contemporary Vase</p>
-            <p class="product_price_cart">500 DKK</p>
-          </div>
-        </div>
-        <div class="item_in_cart">
-          <img src="/img/vases2_3.webp" alt="" />
-          <div class="product_info_cart">
-            <h4 class="uppercase">Michael Brown</h4>
-            <p class="product_name_cart">Contemporary Vase</p>
-            <p class="product_price_cart">500 DKK</p>
+            <h4 class="uppercase">Henrik Larsen</h4>
+            <div class="div-right">
+              <p class="product_name_cart">Elegance Vase</p>
+              <p class="product_price_cart">1.800 DKK</p>
+            </div>
           </div>
         </div>
 
         <div class="total">
-          <p class="uppercase">Total</p>
-          <p>8.300 DKK</p>
+          <p class="uppercase">TOTAL</p>
+          <p>12.600 DKK</p>
         </div>
       </div>
       <div class="proceed">
@@ -97,6 +103,11 @@ import "../style.css";
       margin: var(--s-spacing) 0;
     }
 
+    .total .uppercase {
+      font-family: larken;
+      font-size: var(--h4-font-size);
+    }
+
     @media (min-width: 690px) {
       .grid3_2 {
         display: grid;
@@ -114,7 +125,7 @@ import "../style.css";
         grid-column: 2/6;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
       }
 
@@ -139,6 +150,12 @@ import "../style.css";
         top: 12%;
         left: 59%;
         background-color: var(--grey);
+      }
+
+      .div-right {
+        display: flex;
+        text-align: right;
+        gap: var(--m-spacing);
       }
     }
   </style>
