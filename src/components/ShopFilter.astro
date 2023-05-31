@@ -159,8 +159,10 @@ const data = await response.json();
         const filterContent = document.querySelector(".filter-content");
         const dropdownArrow = document.querySelector(".dropdown-arrow");
         let isContentVisible = false;
+        console.log("hul igennem?");
 
         filterTrigger.addEventListener("click", function () {
+          console.log("click på filter?");
           if (isContentVisible) {
             // If content is already visible, hide it
             filterContent.classList.remove("show");
