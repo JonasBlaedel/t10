@@ -139,10 +139,6 @@ const data = await response.json();
         transform: translateY(0);
       }
 
-      .show {
-        display: block;
-      }
-
       .filter-content.hide {
         height: 0;
         transform: translateY(-20px);
@@ -160,7 +156,7 @@ const data = await response.json();
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const filterTrigger = document.querySelector(".filter-trigger");
-        const filterContent = document.querySelector(".filter-content");
+        const filterContent = document.querySelector(".filter-content") as HTMLDivElement;
         const dropdownArrow = document.querySelector(".dropdown-arrow");
         let isContentVisible = false;
         console.log("hul igennem?");
