@@ -172,7 +172,7 @@ const data = await response.json();
             });
           } else {
             // Otherwise, show the content and animate it in
-            filterContent.classList.remove("show");
+            filterContent.style.display = "block";
             setTimeout(function () {
               filterContent.classList.add("show");
               dropdownArrow.classList.add("rotate");
