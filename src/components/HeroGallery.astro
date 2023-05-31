@@ -31,11 +31,6 @@
 <div class="banner-container">
   <div class="wave-wrapper">
     <img class="wave" src="icons/filledwave.svg" alt="" />
-    <img class="wave" src="icons/filledwave.svg" alt="" />
-    <img class="wave" src="icons/filledwave.svg" alt="" />
-    <img class="wave" src="icons/filledwave.svg" alt="" />
-    <img class="wave" src="icons/filledwave.svg" alt="" />
-    <img class="wave" src="icons/filledwave.svg" alt="" />
   </div>
 </div>
 
@@ -55,25 +50,15 @@
 
   .wave-wrapper {
     display: inline-flex;
-    animation: waveMove linear infinite 50s;
     white-space: nowrap;
     position: absolute;
-    top: 1450px;
+    top: clamp(65.625rem, 57.079rem + 36.4631vw, 90.625rem);
     left: -33px;
   }
 
   .wave {
     width: 100%;
     height: 50px;
-  }
-
-  @keyframes waveMove {
-    0% {
-      transform: translateX(-10%);
-    }
-    100% {
-      transform: translateX(-300%);
-    }
   }
 
   .flex > * {
