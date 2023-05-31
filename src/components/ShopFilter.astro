@@ -165,31 +165,35 @@ const data = await response.json();
     const dropdownArrow = document.querySelector(".dropdown-arrow");
     let isContentVisible = false;
 
+    function toggleContentVisibility() {
+      if (isContentVisible) {
+        // If content is already visible, hide it
+        filterContent.classList.remove("show");
+        filterContent.classList.add("hide");
+        dropdownArrow.classList.remove("rotate");
+        setTimeout(function () {
+          filterContent.style.display = "none";
+          filterContent.classList.remove("hide");
+        });
+      } else {
+        // Otherwise, show the content and animate it in
+        filterContent.style.display = "block";
+        setTimeout(function () {
+          filterContent.classList.add("show");
+          dropdownArrow.classList.add("rotate");
+        }, 10);
+      }
+
+      // Toggle the content visibility flag and rotate class
+      isContentVisible = !isContentVisible;
+    }
+
     if (filterTrigger && filterContent && dropdownArrow) {
-      filterTrigger.addEventListener("click", function () {
-        if (isContentVisible) {
-          // If content is already visible, hide it
-          filterContent.classList.remove("show");
-          filterContent.classList.add("hide");
-          dropdownArrow.classList.remove("rotate");
-          setTimeout(function () {
-            filterContent.style.display = "none";
-            filterContent.classList.remove("hide");
-          });
-        } else {
-          // Otherwise, show the content and animate it in
-          filterContent.style.display = "block";
-          setTimeout(function () {
-            filterContent.classList.add("show");
-            dropdownArrow.classList.add("rotate");
-          }, 10);
-        }
+      filterTrigger.addEventListener("click", toggleContentVisibility);
+    }
 
-        // Toggle the content visibility flag and rotate class
-        isContentVisible = !isContentVisible;
-      });
-
-      // Reset rotation when the content is hidden
+    // Reset rotation when the content is hidden
+    if (filterContent) {
       filterContent.addEventListener("transitionend", function () {
         if (!isContentVisible) {
           dropdownArrow.classList.remove("rotate");
