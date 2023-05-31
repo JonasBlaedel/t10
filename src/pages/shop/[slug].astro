@@ -254,8 +254,26 @@ const { product } = Astro.props;
     isDragging = false;
 
     if (verticalDistance > horizontalDistance && positionDiffY > 0) {
-      console.log("Downward dragging prioritized");
+      // Prioritize downward dragging
+      const threshold = 50; // Adjust the threshold as needed
+
+      if (verticalDistance >= threshold) {
+        // Perform the desired function when downward dragging is prioritized
+        const scrollToNextSection = () => {
+          const sectionHeight = window.innerHeight;
+          const currentScroll = window.scrollY;
+          const nextSectionOffset = Math.ceil((currentScroll + sectionHeight) / sectionHeight) * sectionHeight;
+
+          window.scrollTo({
+            top: nextSectionOffset,
+            behavior: "smooth",
+          });
+        };
+
+        scrollToNextSection();
+      }
     } else {
+      // Implement your logic for horizontal dragging
       autoSlide();
     }
 
