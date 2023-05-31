@@ -116,13 +116,14 @@ import YourOrder from "../components/YourOrder.astro";
     margin-bottom: var(--m-spacing);
   }
   .checkout_with {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     align-items: center;
-    justify-items: center;
+    /* justify-items: center;  */
+    gap: var(--xxs-spacing);
   }
   .checkout_with img {
     width: 100px;
+    padding-top: 6px;
   }
   .payment-icons {
     display: flex;
