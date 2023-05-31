@@ -7,7 +7,7 @@ const { color, size, popupClass } = Astro.props;
 <a class={color + " " + size + " " + popupClass} href={Astro.props.href}><slot /></a>
 <div class="popup" id="popup">
   <div class="popup-content">
-    <p>You have added the item to your cart</p>
+    <p>You have added the item to your cart!</p>
     <div class="popupbuttons">
       <a href="/shop" class="blue">Keep browsing</a>
       <a href="/cart" class="white">View cart</a>
