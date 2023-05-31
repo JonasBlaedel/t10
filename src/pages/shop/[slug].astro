@@ -116,7 +116,7 @@ const { product } = Astro.props;
   .materials,
   .weight,
   .dimensions {
-    margin-bottom: var(--xxs-spacing);
+    margin-bottom: var(--s-spacing);
   }
 
   #price {
@@ -129,6 +129,10 @@ const { product } = Astro.props;
   }
   .description h2 {
     color: var(--blue);
+  }
+
+  .description h4 {
+    margin-bottom: var(--xs-spacing);
   }
 
   @media (min-width: 900px) {
