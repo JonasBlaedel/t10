@@ -156,9 +156,9 @@ const data = await response.json();
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         console.log("hul igennem?");
-        const filterTrigger = document.querySelector(".filter-trigger") as HTMLElement;
-        const filterContent = document.querySelector(".filter-content") as HTMLDivElement;
-        const dropdownArrow = document.querySelector(".dropdown-arrow") as HTMLElement;
+        const filterTrigger = document.querySelector(".filter-trigger"); //as HTMLElement;
+        const filterContent = document.querySelector(".filter-content"); //as HTMLDivElement;
+        const dropdownArrow = document.querySelector(".dropdown-arrow"); //as HTMLElement;
         let isContentVisible = false;
 
         filterTrigger.addEventListener("click", function () {
