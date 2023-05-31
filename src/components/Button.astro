@@ -5,7 +5,7 @@ const { color, size, popupClass } = Astro.props;
 <div class="overlay blur-background"></div>
 
 <a class={color + " " + size + " " + popupClass} href={Astro.props.href}><slot /></a>
-<div class="popup" id="popup">
+<!-- <div class="popup" id="popup">
   <img id="destinationImage" src="path/to/placeholder-image.jpg" alt="Placeholder Image" />
   <div class="popup-content">
     <p>You have added <span id="destinationElement"></span> to your cart</p>
@@ -13,78 +13,126 @@ const { color, size, popupClass } = Astro.props;
       <a href="/shop" class="blue">Keep browsing</a>
       <a href="/cart" class="white">View cart</a>
     </div>
-  </div>
+  </div> -->
 
-  <style>
-    .popup a {
-      padding: var(--xxs-spacing) var(--s-spacing);
-    }
+<style>
+  .popup a {
+    padding: var(--xxs-spacing) var(--s-spacing);
+  }
 
-    #destinationImage {
-      aspect-ratio: 3/5;
-      object-fit: cover;
-      padding: 0.8rem 0;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: -1;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.4s;
-      pointer-events: none;
-    }
+  #destinationImage {
+    aspect-ratio: 3/5;
+    object-fit: cover;
+    padding: 0.8rem 0;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
 
-    .overlay.open-overlay {
-      visibility: visible;
-      opacity: 0.6;
-      z-index: 9999;
-      pointer-events: none;
-    }
-    .blue {
-      background-color: var(--blue);
-      color: var(--white);
-      border: 1px solid var(--blue);
-      cursor: pointer;
-    }
+  .overlay.open-overlay {
+    visibility: visible;
+    opacity: 0.6;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  .blue {
+    background-color: var(--blue);
+    color: var(--white);
+    border: 1px solid var(--blue);
+    cursor: pointer;
+  }
 
-    .blue:hover {
-      background-color: var(--white);
-      color: var(--blue);
-      border: 1px solid var(--blue);
-    }
+  .blue:hover {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+  }
 
-    .white {
-      background-color: var(--white);
-      color: var(--blue);
-      border: 1px solid var(--blue);
-    }
+  .white {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+  }
 
-    .fit-content {
-      padding: var(--xs-spacing) 0;
-      font-size: var(--p-font-size);
-      text-transform: uppercase;
-      width: 100%;
-      display: block;
-      text-align: center;
-    }
+  .fit-content {
+    padding: var(--xs-spacing) 0;
+    font-size: var(--p-font-size);
+    text-transform: uppercase;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
 
-    .full-width {
-      width: 100vw;
-      font-size: var(--p-font-size);
-    }
+  .full-width {
+    width: 100vw;
+    font-size: var(--p-font-size);
+  }
 
+  .popup {
+    width: 100vw;
+    max-width: 500px;
+    max-height: 200px;
+    display: grid;
+    gap: var(--xxs-spacing);
+    grid-template-columns: repeat(5, 1fr);
+    background-color: var(--white);
+    position: fixed;
+    top: 20px;
+    right: 320px;
+    transform: translate(0, 0) scale(0.1);
+    text-align: center;
+    padding: var(--xs-spacing);
+    color: #333;
+    border: 1px solid var(--blue);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    z-index: 9999;
+  }
+  .popup img {
+    grid-column: 1/2;
+  }
+
+  .popup-content {
+    grid-column: 2/6;
+    grid-row: 1/2;
+    display: grid;
+    gap: var(--xxs-spacing);
+  }
+  .popupbuttons {
+    grid-row: 2/3;
+    display: grid;
+    justify-content: center;
+    gap: var(--xxs-spacing);
+    align-items: center;
+  }
+
+  .open-popup {
+    visibility: visible;
+    top: 5%;
+    transform: translate(85%, 30%) scale(1);
+    z-index: 10000;
+  }
+
+  .blur-background #popup {
+    backdrop-filter: none;
+    background-color: transparent;
+  }
+
+  @media (min-width: 690px) {
     .popup {
-      width: 100vw;
-      max-width: 500px;
-      max-height: 200px;
+      width: 500px;
       display: grid;
-      gap: var(--xxs-spacing);
       grid-template-columns: repeat(5, 1fr);
       background-color: var(--white);
       position: fixed;
@@ -107,71 +155,23 @@ const { color, size, popupClass } = Astro.props;
       grid-column: 2/6;
       grid-row: 1/2;
       display: grid;
-      gap: var(--xxs-spacing);
     }
     .popupbuttons {
       grid-row: 2/3;
-      display: grid;
-      justify-content: center;
-      gap: var(--xxs-spacing);
+      display: flex;
+      justify-content: space-around;
       align-items: center;
     }
-
     .open-popup {
       visibility: visible;
       top: 5%;
-      transform: translate(85%, 30%) scale(1);
+      transform: translate(60%, 30%) scale(1);
       z-index: 10000;
     }
+  }
+</style>
 
-    .blur-background #popup {
-      backdrop-filter: none;
-      background-color: transparent;
-    }
-
-    @media (min-width: 690px) {
-      .popup {
-        width: 500px;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        background-color: var(--white);
-        position: fixed;
-        top: 20px;
-        right: 320px;
-        transform: translate(0, 0) scale(0.1);
-        text-align: center;
-        padding: var(--xs-spacing);
-        color: #333;
-        border: 1px solid var(--blue);
-        visibility: hidden;
-        transition: transform 0.4s, top 0.4s;
-        z-index: 9999;
-      }
-      .popup img {
-        grid-column: 1/2;
-      }
-
-      .popup-content {
-        grid-column: 2/6;
-        grid-row: 1/2;
-        display: grid;
-      }
-      .popupbuttons {
-        grid-row: 2/3;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-      }
-      .open-popup {
-        visibility: visible;
-        top: 5%;
-        transform: translate(60%, 30%) scale(1);
-        z-index: 10000;
-      }
-    }
-  </style>
-
-  <script>
+<!-- <script>
     function copyImage() {
       var sourceImage = document.getElementById("sourceImage");
       var destinationImage = document.getElementById("destinationImage");
@@ -238,5 +238,4 @@ const { color, size, popupClass } = Astro.props;
 
     buttonClick();
     // buttonClickClose();
-  </script>
-</div>
+  </script> -->
