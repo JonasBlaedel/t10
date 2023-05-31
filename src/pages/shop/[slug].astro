@@ -75,9 +75,13 @@ const { product } = Astro.props;
     font-size: 0px;
     overflow: hidden;
     scroll-behavior: smooth;
+    margin-top: 4rem;
   }
   .carousel img {
     margin-left: 14px;
+    max-width: 90% !important;
+    aspect-ratio: 3/4;
+    object-fit: cover;
   }
   .carousel img:first-child {
     margin-left: 0px;
