@@ -64,11 +64,7 @@ const { product } = Astro.props;
 
 <style>
   .main-container {
-<<<<<<< HEAD
     margin-top: var(--s-spacing) !important;
-=======
-    margin-top: var(--s-spacing);
->>>>>>> cd54d52 (main container single view)
   }
   .blur-background img {
     filter: blur(4px);
@@ -143,9 +139,6 @@ const { product } = Astro.props;
   }
 
   @media (min-width: 900px) {
-    .main-container {
-      margin-top: var(--xl-spacing);
-    }
     .wrapper {
       max-width: calc(30vw * 0.75);
       grid-column: 2/3;
@@ -153,6 +146,9 @@ const { product } = Astro.props;
       margin-top: var(--m-spacing);
     }
 
+    .main-container {
+      margin-top: var(--s-spacing) !important;
+    }
     .wrapper .carousel {
       overflow: visible;
     }
