@@ -101,6 +101,10 @@ const data = await response.json();
         cursor: pointer;
       }
 
+      .filter-trigger p {
+        font-family: helveticah1;
+      }
+
       .filter {
         width: 100%;
         background-color: white;
@@ -152,57 +156,57 @@ const data = await response.json();
         transform: rotate(180deg);
       }
     </style>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        console.log("hul igennem?");
-        const filterTrigger = document.querySelector(".filter-trigger"); //as HTMLElement;
-        const filterContent = document.querySelector(".filter-content"); //as HTMLDivElement;
-        const dropdownArrow = document.querySelector(".dropdown-arrow"); //as HTMLElement;
-        let isContentVisible = false;
-
-        filterTrigger.addEventListener("click", function () {
-          console.log("click på filter?");
-          if (isContentVisible) {
-            // If content is already visible, hide it
-            filterContent.classList.remove("show");
-            filterContent.classList.add("hide");
-            dropdownArrow.classList.remove("rotate");
-            setTimeout(function () {
-              filterContent.style.display = "none";
-              filterContent.classList.remove("hide");
-            });
-          } else {
-            // Otherwise, show the content and animate it in
-            filterContent.style.display = "block";
-            setTimeout(function () {
-              filterContent.classList.add("show");
-              dropdownArrow.classList.add("rotate");
-            }, 10);
-          }
-
-          // Toggle the content visibility flag and rotate class
-          isContentVisible = !isContentVisible;
-        });
-
-        // Reset rotation when the content is hidden
-        filterContent.addEventListener("transitionend", function () {
-          if (!isContentVisible) {
-            dropdownArrow.classList.remove("rotate");
-          }
-        });
-
-        // Add event listener to the Reset button
-        document.getElementById("resetButton").addEventListener("click", function () {
-          // Get all checkbox buttons
-          var checkboxes = document.querySelectorAll("input[type=checkbox]");
-
-          // Loop through the checkbox buttons and uncheck them
-          checkboxes.forEach(function (checkbox) {
-            (checkbox as HTMLInputElement).checked = false;
-          });
-        });
-      });
-    </script>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("hul igennem?");
+    const filterTrigger = document.querySelector(".filter-trigger") as HTMLElement;
+    const filterContent = document.querySelector(".filter-content") as HTMLDivElement;
+    const dropdownArrow = document.querySelector(".dropdown-arrow") as HTMLElement;
+    let isContentVisible = false;
+
+    filterTrigger.addEventListener("click", function () {
+      console.log("click på filter?");
+      if (isContentVisible) {
+        // If content is already visible, hide it
+        filterContent.classList.remove("show");
+        filterContent.classList.add("hide");
+        dropdownArrow.classList.remove("rotate");
+        setTimeout(function () {
+          filterContent.style.display = "none";
+          filterContent.classList.remove("hide");
+        });
+      } else {
+        // Otherwise, show the content and animate it in
+        filterContent.style.display = "block";
+        setTimeout(function () {
+          filterContent.classList.add("show");
+          dropdownArrow.classList.add("rotate");
+        }, 10);
+      }
+
+      // Toggle the content visibility flag and rotate class
+      isContentVisible = !isContentVisible;
+    });
+
+    // Reset rotation when the content is hidden
+    filterContent.addEventListener("transitionend", function () {
+      if (!isContentVisible) {
+        dropdownArrow.classList.remove("rotate");
+      }
+    });
+
+    // Add event listener to the Reset button
+    document.getElementById("resetButton").addEventListener("click", function () {
+      // Get all checkbox buttons
+      var checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+      // Loop through the checkbox buttons and uncheck them
+      checkboxes.forEach(function (checkbox) {
+        (checkbox as HTMLInputElement).checked = false;
+      });
+    });
+  });
+</script>
