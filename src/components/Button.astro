@@ -171,47 +171,47 @@ const { color, size, popupClass } = Astro.props;
   </style>
 
   <script>
-    let popup = document.getElementById("popup");
-    let overlay = document.querySelector(".overlay");
-    let body = document.querySelector("body");
+    let e = document.getElementById("popup"),
+      t = document.querySelector(".overlay"),
+      n = document.querySelector("body");
 
-    function buttonClick() {
-      document.querySelector(".btn").addEventListener("click", openPopup);
+    function i() {
+      document.querySelector(".btn").addEventListener("click", u);
     }
 
-    function buttonClickClose() {
-      document.querySelector(".btnclose").addEventListener("click", closePopup);
+    function s() {
+      document.querySelector(".btnclose").addEventListener("click", c);
     }
 
-    function openPopup() {
-      popup.classList.add("open-popup");
-      overlay.classList.add("open-overlay");
-      disableScroll();
-      document.addEventListener("click", outsideClick);
+    function u() {
+      e.classList.add("open-popup");
+      t.classList.add("open-overlay");
+      r();
+      document.addEventListener("click", l);
     }
 
-    function closePopup() {
-      popup.classList.remove("open-popup");
-      overlay.classList.remove("open-overlay");
-      enableScroll();
-      document.removeEventListener("click", outsideClick);
+    function c() {
+      e.classList.remove("open-popup");
+      t.classList.remove("open-overlay");
+      d();
+      document.removeEventListener("click", l);
     }
 
-    function outsideClick(event) {
-      if (!popup.contains(event.target) && !event.target.classList.contains("btn")) {
-        closePopup();
-      }
+    function l(o) {
+      !e.contains(o.target) && !o.target.classList.contains("btn") && c();
     }
 
-    function disableScroll() {
-      body.style.overflow = "hidden";
+    function r() {
+      n.style.overflow = "hidden";
     }
 
-    function enableScroll() {
-      body.style.overflow = "auto";
+    function d() {
+      n.style.overflow = "auto";
     }
 
-    buttonClick();
-    buttonClickClose();
+    document.addEventListener("DOMContentLoaded", function () {
+      i();
+      s();
+    });
   </script>
 </div>
