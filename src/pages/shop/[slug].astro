@@ -253,12 +253,13 @@ const { product } = Astro.props;
     if (!isDragging) return;
     isDragging = false;
 
-    if (verticalDistance > horizontalDistance) {
+    if (verticalDistance > horizontalDistance && positionDiffY > 0) {
       console.log("Downward dragging prioritized");
     } else {
       autoSlide();
     }
 
+    // Reset distance counters
     verticalDistance = 0;
     horizontalDistance = 0;
   };
