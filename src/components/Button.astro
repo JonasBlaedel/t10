@@ -22,6 +22,8 @@ const { color, size, popupClass } = Astro.props;
 
     #destinationImage {
       height: 100px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
     }
     .overlay {
       position: fixed;
@@ -86,7 +88,7 @@ const { color, size, popupClass } = Astro.props;
       right: 320px;
       transform: translate(0, 0) scale(0.1);
       text-align: center;
-      padding: 15px 5px;
+      padding: var(--xs-spacing);
       color: #333;
       border: 1px solid var(--blue);
       visibility: hidden;
@@ -105,7 +107,7 @@ const { color, size, popupClass } = Astro.props;
     .popupbuttons {
       grid-row: 2/3;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-around;
       align-items: center;
     }
 
