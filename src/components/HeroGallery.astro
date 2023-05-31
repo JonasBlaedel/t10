@@ -31,13 +31,69 @@
     </div>
   </div>
 </div>
-<div class="banner-container">
+<!-- <div class="banner-container">
   <div class="wave-wrapper">
     <img class="wave" src="icons/filledwave.svg" alt="" />
   </div>
+</div> -->
+
+
+<div class="marquee">
+  <div class="marquee--inner">
+    <span>
+      <div class="orb">    <img class="wave" src="icons/filledwave.svg" alt="" /></div>
+    </span>
+    <span>
+      <div class="orb">    <img class="wave" src="icons/filledwave.svg" alt="" /></div>
+    </span>
+  </div>
 </div>
 
+
+
 <style>
+.orb {
+height: 50px;
+  display: inline-block;
+  float: left;
+  transition: all .2s ease-out;
+}
+
+.marquee .marquee--inner .orb:first-of-type {
+  position: relative;
+  top: -5px;
+}
+
+
+
+
+.marquee {
+  height: 200px;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: absolute;
+  top: clamp(70.375rem, 65.3958rem + 21.2444vw, 85.3125rem);
+}
+
+.marquee--inner {
+  display: flex;
+  width: 200%;
+  margin: 70px 0;
+  position: relative;
+  animation: marquee 20s linear infinite;
+}
+
+
+span {
+  float: left;
+  width: 50%:
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+
   .main-container {
     margin-top: 0 !important;
   }
@@ -50,6 +106,8 @@
     width: 100%;
     overflow: hidden;
   }
+
+  .wave:fis
 
   .wave-wrapper {
     display: inline-flex;
